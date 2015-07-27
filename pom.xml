@@ -12,5 +12,6 @@
     <module>pfs-util</module>
     <module>pfs-rest-service</module>
     <module>pfs-web-view</module>
+    <module>pfs-entity</module>
   </modules>
 </project>
