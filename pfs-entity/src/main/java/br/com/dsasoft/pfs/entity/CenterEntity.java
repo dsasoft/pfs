@@ -12,6 +12,7 @@ public class CenterEntity implements Center {
 	//@Column
 	private String name;
 	//TODO: how do we persist 'enum'
+	//@Enum(type=EnumType.String)
 	private CenterType centerType;
 
 	public Long getId() {
