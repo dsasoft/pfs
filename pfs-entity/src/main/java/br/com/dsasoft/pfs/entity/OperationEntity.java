@@ -10,32 +10,26 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.dsasoft.pfs.model.Account;
-import br.com.dsasoft.pfs.model.Intransfer;
+import br.com.dsasoft.pfs.model.Center;
+import br.com.dsasoft.pfs.model.Operation;
 @Entity
-@Table(name="tb_intransfer")
-public class IntransferEntity implements Intransfer {
+@Table(name="tb_operation")
+public class OperationEntity implements Operation {
 
+	@OneToOne
+	private Center center;
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	@OneToOne
-	private Account accountFrom;
-	@OneToOne
-	private Account accountTo;
 	@Column
 	private BigDecimal amount;
 	
+	public Center getCenter() {
+		return this.center;
+	}
+
 	public Date getDate() {
 		return this.date;
-	}
-
-	public Account getAccountFrom() {
-		return this.accountFrom;
-	}
-
-	public Account getAccountTo() {
-		return this.accountTo;
 	}
 
 	public BigDecimal getAmount() {
