@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,11 +18,17 @@ import br.com.dsasoft.pfs.model.Operation;
 @Table(name="tb_operation")
 public class OperationEntity implements Operation {
 
+	@Id
+	@GeneratedValue
+	private Long id;
+	
 	@OneToOne
-	private Center center;
+	private CenterEntity center;
+	
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	
 	@Column
 	private BigDecimal amount;
 	
