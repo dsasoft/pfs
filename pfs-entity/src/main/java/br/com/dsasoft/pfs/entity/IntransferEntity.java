@@ -10,9 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
-import br.com.dsasoft.pfs.model.Account;
 import br.com.dsasoft.pfs.model.Intransfer;
 @Entity
 @Table(name="tb_intransfer")
@@ -25,12 +23,10 @@ public class IntransferEntity implements Intransfer {
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date date;
-//	@Column
-	@Transient
-	private AccountEntity accountFrom;
-//	@Column
-	@Transient
-	private AccountEntity accountTo;
+	@Column
+	private Long accountFrom;
+	@Column
+	private Long accountTo;
 	@Column
 	private BigDecimal amount;
 	
@@ -38,11 +34,11 @@ public class IntransferEntity implements Intransfer {
 		return this.date;
 	}
 
-	public Account getAccountFrom() {
+	public Long getAccountFrom() {
 		return this.accountFrom;
 	}
 
-	public Account getAccountTo() {
+	public Long getAccountTo() {
 		return this.accountTo;
 	}
 

@@ -7,9 +7,9 @@ public interface Intransfer {
 
 	public Date getDate();
 	
-	public Account getAccountFrom();
+	public Long getAccountFrom();
 	
-	public Account getAccountTo();
+	public Long getAccountTo();
 	
 	public BigDecimal getAmount();
 }
