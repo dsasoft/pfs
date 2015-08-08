@@ -67,7 +67,7 @@ public class PersistenceTest {
 		
 		EntityManager em = emf.createEntityManager();
 		
-		em.getTransaction().begin();
+//		em.getTransaction().begin();
 
 		Query query = em.createQuery("select a from AccountEntity a");
 
@@ -77,7 +77,7 @@ public class PersistenceTest {
 		for (Account a : accounts)
 			System.out.println(a);
 
-		em.getTransaction().commit();
+//		em.getTransaction().commit();
 		
 	}
 }

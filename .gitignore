@@ -9,8 +9,8 @@
 # Eclipse files
 
 
-**/.classpath
-**/.project
+# **/.classpath
+# **/.project
 **/.settings/
 /.settings
 /build
@@ -18,9 +18,9 @@
 
 #Netbeans files
 
-nbactions.xml
-**/nb-configuration.xml
-**/META-INF
+# nbactions.xml
+# **/nb-configuration.xml
+# **/META-INF
 
 # Maven files
 
@@ -34,3 +34,6 @@ logs/
 
 # Log files
 *.log
+
+*~
+
