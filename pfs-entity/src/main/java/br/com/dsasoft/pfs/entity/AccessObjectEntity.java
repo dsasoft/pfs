@@ -12,7 +12,7 @@ public class AccessObjectEntity implements AccessObject {
 
 	@Id
 //	TODO: @Unique How to do it
-	private Long identifier;
+	private String identifier;
 	@Column
 	private String keyPass;
 	@Column

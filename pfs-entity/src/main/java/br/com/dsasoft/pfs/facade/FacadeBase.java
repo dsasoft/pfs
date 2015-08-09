@@ -14,7 +14,7 @@ public abstract class FacadeBase<T> {
 	
 	public abstract T findById(Long id);
 	
-	public abstract List<T> listAll(Long id);
+	public abstract List<T> listAll();
 	
 	public abstract void update( T t);
 	

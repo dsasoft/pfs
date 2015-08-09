@@ -18,7 +18,7 @@ public class AccountFacade extends FacadeBase<Account> {
 	}
 
 	@Override
-	public List<Account> listAll(Long id) {
+	public List<Account> listAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
