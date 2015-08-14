@@ -53,15 +53,8 @@ public class PersistenceTest {
         }
 	}
 
-	@Test
+//	@Test
 	public void persistenceContext() {
-		// Map<String, String> pfsMap = new LinkedHashMap<String, String>();
-		//
-		// pfsMap.put(Persistence.PERSISTENCE_PROVIDER, "org.hibernate.ejb.HibernatePersistence");
-		// pfsMap.put("javax.persistence.jdbc.driver", "com.mysql.jdbc.Driver");
-		// pfsMap.put("javax.persistence.jdbc.url", "jdbc:mysql://localhost:3306/pfs_db");
-		// pfsMap.put("javax.persistence.jdbc.user", "root");
-		// pfsMap.put("javax.persistence.jdbc.password", "root");
 
 		emf = Persistence.createEntityManagerFactory("pfs-entity");
 		
