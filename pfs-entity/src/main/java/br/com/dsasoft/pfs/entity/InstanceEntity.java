@@ -31,53 +31,43 @@ public class InstanceEntity implements Instance {
 	private AccessObjectEntity accessObject;
 
 	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.id;
 	}
 
 	public String getToken() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.token;
 	}
 
 	public Date getRegDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return regDate;
 	}
 
 	public Boolean setActive() {
-		// TODO Auto-generated method stub
-		return null;
+		return active;
 	}
 
 	public AccessObject getAccessObject() {
-		// TODO Auto-generated method stub
-		return null;
+		return accessObject;
 	}
 
 	public void setId(Long id) {
-		// TODO Auto-generated method stub
-
+		this.id = id;
 	}
 
 	public void setToken(String token) {
-		// TODO Auto-generated method stub
-
+		this.token = token;
 	}
 
 	public void setRegDate(Date date) {
-		// TODO Auto-generated method stub
-
+		this.regDate = date;
 	}
 
 	public void setActive(Boolean active) {
-		// TODO Auto-generated method stub
-
+		this.active = active;
 	}
 
 	public void setAccessObject(AccessObject accessObject) {
-		// TODO Auto-generated method stub
-
+		this.accessObject = (AccessObjectEntity) accessObject;
 	}
 
 }

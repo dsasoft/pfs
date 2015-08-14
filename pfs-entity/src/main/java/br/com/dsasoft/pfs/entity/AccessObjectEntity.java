@@ -19,33 +19,27 @@ public class AccessObjectEntity implements AccessObject {
 	private String recoverKeyPassEmail;
 
 	public String getIdentifier() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.identifier;
 	}
 
 	public String getKeyPass() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.keyPass;
 	}
 
 	public String getRecoverKeyPassEmail() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.recoverKeyPassEmail;
 	}
 
 	public void getIdentifier(String identifier) {
-		// TODO Auto-generated method stub
-		
+		this.identifier = identifier;
 	}
 
 	public void getKeyPass(String keyPass) {
-		// TODO Auto-generated method stub
-		
+		this.keyPass = keyPass;
 	}
 
 	public void getRecoverKeyPassEmail(String recoverKeyPassEmail) {
-		// TODO Auto-generated method stub
-		
+		this.recoverKeyPassEmail = recoverKeyPassEmail;
 	}
 
 }

@@ -12,8 +12,9 @@ import javax.persistence.TemporalType;
 
 import br.com.dsasoft.pfs.model.Instance;
 import br.com.dsasoft.pfs.model.TokenLog;
+
 @Entity
-@Table(name="tb_token_log")
+@Table(name = "tb_token_log")
 public class TokenLogEntity implements TokenLog {
 	@Id
 	@GeneratedValue
@@ -27,57 +28,46 @@ public class TokenLogEntity implements TokenLog {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date expiresDate;
 	@Column
-	private Long instanceId;
-	
-	
+	private Instance instance;
+
 	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 	public String getToken() {
-		// TODO Auto-generated method stub
-		return null;
+		return token;
 	}
 
 	public Date getCreatedDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.regDate;
 	}
 
 	public Date getExpiresDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.expiresDate;
 	}
 
 	public Instance getInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.instance;
 	}
 
 	public void setId(Long id) {
-		// TODO Auto-generated method stub
-
+		this.id = id;
 	}
 
 	public void setToken(String token) {
-		// TODO Auto-generated method stub
-
+		this.token = token;
 	}
 
 	public void setCreatedDate(Date date) {
-		// TODO Auto-generated method stub
-
+		this.regDate = date;
 	}
 
 	public void setExpiresDate(Date date) {
-		// TODO Auto-generated method stub
-
+		this.expiresDate = date;
 	}
 
 	public void setInstance(Instance instance) {
-		// TODO Auto-generated method stub
-
+		this.instance = instance;
 	}
 
 }
