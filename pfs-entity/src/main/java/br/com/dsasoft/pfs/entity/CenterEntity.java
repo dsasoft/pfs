@@ -33,4 +33,23 @@ public class CenterEntity implements Center {
 	public CenterType getCenterType() {
 		return centerType;
 	}
+
+	@Override
+	public String toString() {
+		return "CenterEntity [id=" + id + ", name=" + name + ", centerType=" + centerType + "]";
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCenterType(CenterType centerType) {
+		this.centerType = centerType;
+	}
+	
+	
 }
