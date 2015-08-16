@@ -7,13 +7,15 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import br.com.dsasoft.pfs.model.Center;
 import br.com.dsasoft.pfs.model.CenterType;
+
 @Entity
-@Table(name="tb_center")
+@Table(name = "tb_center", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }) )
 public class CenterEntity implements Center {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -50,6 +52,5 @@ public class CenterEntity implements Center {
 	public void setCenterType(CenterType centerType) {
 		this.centerType = centerType;
 	}
-	
-	
+
 }

@@ -27,21 +27,26 @@ public class CenterTest {
 	
 	@Before
 	public void givenPersistentContext() {
-		System.out.println("\n\n[...] " + CenterTest.class.getName());
 		emf = Persistence.createEntityManagerFactory("pfs-entity");
 		em = emf.createEntityManager();
+		
+		insert();
 	}
 	
-	@Test
-	public void insert(){
-		CenterEntity c = new CenterEntity();
+	private void insert(){
+		CenterEntity cOut = new CenterEntity();
 		
-		c.setName("transport");
-		c.setCenterType(CenterType.OUTCOME);
+		cOut.setName("transport");
+		cOut.setCenterType(CenterType.OUTCOME);
+		
+		Center cIn = new CenterEntity();
+		cIn.setName("salary");
+		cIn.setCenterType(CenterType.INCOME);
 		
 		em.getTransaction().begin();
 		
-		em.persist(c);
+		em.persist(cOut);
+		em.persist(cIn);
 		
 		em.getTransaction().commit();
 	}
@@ -50,7 +55,8 @@ public class CenterTest {
 	@Test
 	public void select() {
 		
-		Query query = em.createQuery("select a from CenterEntity a");
+		Query query = em.createQuery("SELECT c FROM CenterEntity AS c");
+		
 		
 		@SuppressWarnings("unchecked")
 		List<Center> list = (List<Center>)	query.getResultList();
