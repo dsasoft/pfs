@@ -31,4 +31,6 @@ public class CenterResouces {
 		GenericEntity<List<Center>> entity = new GenericEntity<List<Center>>(list){};
 		return Response.ok(entity).build();
 	}
+	
+//	public Center 
 }
