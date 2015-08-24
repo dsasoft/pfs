@@ -8,9 +8,10 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import br.com.dsasoft.pfs.entity.CenterEntity;
 import br.com.dsasoft.pfs.model.Center;
 
-public class CenterFacade extends FacadeBase<Center> {
+public class CenterFacade extends FacadeBase<CenterEntity> {
 
 	@PersistenceContext
 	EntityManagerFactory emf;
@@ -24,36 +25,36 @@ public class CenterFacade extends FacadeBase<Center> {
 	}
 
 	@Override
-	public Center findById(Long id) {
+	public CenterEntity findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Center> listAll() {
+	public List<CenterEntity> listAll() {
 		Query query = 
 				em.createQuery("SELECT c FROM CenterEntity AS c");
 		
 		@SuppressWarnings("unchecked")
-		List<Center> list = query.getResultList();		
+		List<CenterEntity> list = query.getResultList();		
 
 		return list;
 	}
 
 	@Override
-	public void update(Center t) {
+	public void update(CenterEntity t) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(Center t) {
+	public void delete(CenterEntity t) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Long create(Center t) {
+	public Long create(CenterEntity t) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.dsasoft.pfs.model.Center;
 import br.com.dsasoft.pfs.model.CenterType;
 
 @Entity
 @Table(name = "tb_center", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }) )
+@XmlRootElement
 public class CenterEntity implements Center {
 
 	@Id
