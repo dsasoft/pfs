@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.dsasoft.pfs.model.Account;
 @Entity
 @Table(name="tb_account")
+@XmlRootElement
 public class AccountEntity implements Account {
 
 	@Id
