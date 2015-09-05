@@ -8,7 +8,7 @@ $(document).ready(function() {
 function getData() {
 
 	$.ajax({
-		url : 'http://localhost:8081/pfs-rest-service/ws/center/all',
+		url : '../pfs-rest-service/ws/center/all',
 		mimeType : 'application/json',
 		method : 'GET',
 		dataType: 'json',

@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import br.com.dsasoft.pfs.entity.CenterEntity;
-import br.com.dsasoft.pfs.model.Center;
 
 public class CenterFacade extends FacadeBase<CenterEntity> {
 
