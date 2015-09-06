@@ -9,10 +9,10 @@ $(document).ready(function() {
 	createDatePicker();
 	createSelectCenter();
 	createSelectAccount();
-	applyMask();
+	applyNumericMask();
 });
 
-function applyMask(){
+function applyNumericMask(){
 	$('#intrans-amount').autoNumeric('init');
 
 //	$('#intrans-amount').mask('decimal',{
@@ -46,6 +46,16 @@ function createSelectAccount(){
 			$('#select-account-from').html('<div>ERROR</div>');
 		}
 	});
+}
+
+function createSelectAccountTo(data, idx){
+	
+	//TODO: Create logic...
+	
+	$.each(data.accountEntity, function(index, value){
+		//if(value.id == index) skip to next...
+	});
+	$('#select-account-to').append(content);
 }
 
 function createSelectCenter(){

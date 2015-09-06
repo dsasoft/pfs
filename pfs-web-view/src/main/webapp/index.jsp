@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="assets/jquery/ui/jquery-ui.css" />
 
 <style type="text/css">
-	.ui-widget input {
-		width: 110px;
-	}
+.ui-widget input {
+	width: 110px;
+}
 </style>
 </head>
 <body>
@@ -27,11 +27,11 @@
 				<strong>Internal transfer panel</strong>
 			</p>
 			<div id="tab1-content">
-				<input type="text" id="datepicker"/>
-				<select id="select-account-from"></select>
+				<input type="text" id="datepicker" /> 
+				<select id="select-account-from"></select> 
 				<select id="select-account-to"></select>
-				<input type="text" id="intrans-amount">
-				<input type="button" id="btn-save" value="save"/>
+				<input type="text" id="intrans-amount"> 
+				<input type="button" id="btn-save" value="save" />
 			</div>
 		</div>
 		<div id="tabs-2">
@@ -40,7 +40,7 @@
 			</p>
 
 			<div id="list-center"></div>
-			
+
 			<div id="select-center"></div>
 
 			<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus
@@ -55,21 +55,6 @@
 				felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris
 				consectetur tortor et purus.</p>
 		</div>
-<!-- 		<div id="tabs-3"> -->
-<!-- 			<p> -->
-<!-- 				<strong>Click this tab again to close the content pane.</strong> -->
-<!-- 			</p> -->
-<!-- 			<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, -->
-<!-- 				semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra -->
-<!-- 				justo vitae neque. Praesent blandit adipiscing velit. Suspendisse -->
-<!-- 				potenti. Donec mattis, pede vel pharetra blandit, magna ligula -->
-<!-- 				faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. -->
-<!-- 				Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi -->
-<!-- 				lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean -->
-<!-- 				vehicula velit eu tellus interdum rutrum. Maecenas commodo. -->
-<!-- 				Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus -->
-<!-- 				hendrerit hendrerit.</p> -->
-<!-- 		</div> -->
 	</div>
 </body>
 </html>
