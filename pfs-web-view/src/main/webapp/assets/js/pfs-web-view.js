@@ -1,20 +1,20 @@
 /**
- * TODO: Create doc
+ * TODO: ** Create documentation ** 
  */
 
 
 $(document).ready(function() {
-//	getData();
 	createTabs();
 	createDatePicker();
-	createSelectCenter();
 	createSelectAccount();
 	applyNumericMask();
+//	getData();
+//	createSelectCenter();
 });
 
 function applyNumericMask(){
-	$('#intrans-amount').autoNumeric('init');
-
+	$('#it_amount').autoNumeric('init');
+	$('#op_amount').autoNumeric('init');
 //	$('#intrans-amount').mask('decimal',{
 //		radixPoint:".", 
 //        groupSeparator: ",", 
@@ -55,33 +55,18 @@ function createSelectAccountTo(data, idx){
 	$.each(data.accountEntity, function(index, value){
 		//if(value.id == index) skip to next...
 	});
-	$('#select-account-to').append(content);
-}
-
-function createSelectCenter(){
-	$.ajax({
-		url : '../pfs-rest-service/ws/center/all',
-		mimeType : 'application/json',
-		method : 'GET',
-		dataType : 'json',
-		success : function(data) {
-
-			var content = '<select>'
-				+'<option/>';
-			$.each(data.centerEntity, function(index, value) {
-				content += '<option value=\"'+value.id+'\">' + value.centerType + '</option>';
-			});
-			content += '</select>';
-			$('#select-center').html(content);
-		},
-		error : function(data, status, error) {
-			$('#select-center').html('<div>ERROR</div>');
-		}
-	});
+	//$('#select-account-to').append(content);
 }
 
 function createDatePicker() {
-	$("#datepicker").datepicker({
+	$("#it_datepicker").datepicker({
+		showOn : "button",
+		buttonImage : "assets/images/calendar.gif",
+		buttonImageOnly : true,
+		buttonText : "Select date",
+	});
+	
+	$("#op_datepicker").datepicker({
 		showOn : "button",
 		buttonImage : "assets/images/calendar.gif",
 		buttonImageOnly : true,
@@ -95,27 +80,50 @@ function createTabs() {
 	$("#tabs").tabs();
 }
 
+//function createSelectCenter(){
+//$.ajax({
+//	url : '../pfs-rest-service/ws/center/all',
+//	mimeType : 'application/json',
+//	method : 'GET',
+//	dataType : 'json',
+//	success : function(data) {
+//
+//		var content = '<select>'
+//			+'<option/>';
+//		$.each(data.centerEntity, function(index, value) {
+//			content += '<option value=\"'+value.id+'\">' + value.centerType + '</option>';
+//		});
+//		content += '</select>';
+//		$('#select-center').html(content);
+//	},
+//	error : function(data, status, error) {
+//		$('#select-center').html('<div>ERROR</div>');
+//	}
+//});
+//}
+
+
 /**
  * Ajax based function to 
  * access/retrieve data from pfs-rest-service
  * */
-function getData() {
-	$.ajax({
-		url : '../pfs-rest-service/ws/center/all',
-		mimeType : 'application/json',
-		method : 'GET',
-		dataType : 'json',
-		success : function(data) {
-
-			var content = '<ul>';
-			$.each(data.centerEntity, function(index, value) {
-				content += '<li>' + value.centerType + '</li>';
-			});
-			content += '</ul>';
-			$('#list-center').html(content);
-		},
-		error : function(data, status, error) {
-			$('#list-center').html('<div>ERROR</div>');
-		}
-	});
-}
+//function getData() {
+//	$.ajax({
+//		url : '../pfs-rest-service/ws/center/all',
+//		mimeType : 'application/json',
+//		method : 'GET',
+//		dataType : 'json',
+//		success : function(data) {
+//
+//			var content = '<ul>';
+//			$.each(data.centerEntity, function(index, value) {
+//				content += '<li>' + value.centerType + '</li>';
+//			});
+//			content += '</ul>';
+//			$('#list-center').html(content);
+//		},
+//		error : function(data, status, error) {
+//			$('#list-center').html('<div>ERROR</div>');
+//		}
+//	});
+//}

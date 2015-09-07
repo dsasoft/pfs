@@ -27,21 +27,24 @@
 				<strong>Internal transfer panel</strong>
 			</p>
 			<div id="tab1-content">
-				<input type="text" id="datepicker" /> 
+				<input type="text" id="it_datepicker" /> 
 				<select id="select-account-from"></select> 
 				<select id="select-account-to"></select>
-				<input type="text" id="intrans-amount"> 
+				<input type="text" id="it_-amount"> 
 				<input type="button" id="btn-save" value="save" />
 			</div>
 		</div>
 		<div id="tabs-2">
 			<p>
-				<strong>Click this tab again to close the content pane.</strong>
+				<strong>Operation panel</strong>
 			</p>
 
-			<div id="list-center"></div>
-
-			<div id="select-center"></div>
+			<input type="text" id="op_datepicker" /> 
+			<input type="text" id="op_amount">
+			<select id="select-account"></select>
+			
+			 
+			
 
 			<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus
 				gravida ante, ut pharetra massa metus id nunc. Duis scelerisque
