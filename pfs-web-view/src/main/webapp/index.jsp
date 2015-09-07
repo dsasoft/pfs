@@ -27,11 +27,13 @@
 				<strong>Internal transfer panel</strong>
 			</p>
 			<div id="tab1-content">
-				<input type="text" id="it_datepicker" /> 
-				<select id="select-account-from"></select> 
-				<select id="select-account-to"></select>
-				<input type="text" id="it_amount"> 
-				<input type="button" id="btn-save" value="save" />
+				<form action="" method="post">
+					<input id="it_datepicker" type="text"/> 
+					<select id="select-account-from"></select> 
+					<select id="select-account-to"></select>
+					<input id="it_amount" type="text" > 
+					<input id="btn-save" type="submit" value="save" />
+				</form>
 			</div>
 		</div>
 		<div id="tabs-2">
@@ -47,5 +49,6 @@
 			 
 		</div>
 	</div>
+	<div id="result"></div>
 </body>
 </html>

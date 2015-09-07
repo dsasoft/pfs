@@ -9,7 +9,31 @@ $(document).ready(function() {
 	createSelectAccount();
 	applyNumericMask();
 	createSelectCenter();
-//	getData();
+});
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+$(function() {
+    $('form').submit(function() {
+    	alert('...');
+        $('#result').text(JSON.stringify($('form').serializeObject()));
+        return false;
+    });
 });
 
 function applyNumericMask(){
@@ -18,13 +42,6 @@ function applyNumericMask(){
 	};
 	$('#it_amount').autoNumeric('init', options);
 	$('#op_amount').autoNumeric('init', options);
-//	$('#intrans-amount').mask('decimal',{
-//		radixPoint:".", 
-//        groupSeparator: ",", 
-//        digits: 2,
-//        autoGroup: true,
-//        prefix: 'R$ '
-//	});
 }
 
 function createSelectAccount(){
@@ -64,19 +81,15 @@ function createSelectAccountTo(data, idx){
 }
 
 function createDatePicker() {
-	$("#it_datepicker").datepicker({
-		showOn : "button",
-		buttonImage : "assets/images/calendar.gif",
-		buttonImageOnly : true,
-		buttonText : "Select date",
-	});
+	var calOptions = {
+			showOn : "button",
+			buttonImage : "assets/images/calendar.gif",
+			buttonImageOnly : true,
+			buttonText : "Select date",
+	};
+	$("#it_datepicker").datepicker(calOptions);
 	
-	$("#op_datepicker").datepicker({
-		showOn : "button",
-		buttonImage : "assets/images/calendar.gif",
-		buttonImageOnly : true,
-		buttonText : "Select date",
-	});
+	$("#op_datepicker").datepicker(calOptions);
 }
 /**
  * Create to switch between In-transfer and operation's panel 
