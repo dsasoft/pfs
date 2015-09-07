@@ -8,13 +8,16 @@ $(document).ready(function() {
 	createDatePicker();
 	createSelectAccount();
 	applyNumericMask();
+	createSelectCenter();
 //	getData();
-//	createSelectCenter();
 });
 
 function applyNumericMask(){
-	$('#it_amount').autoNumeric('init');
-	$('#op_amount').autoNumeric('init');
+	var options = {
+		aSep: '.', aDec: ',', aSign: 'R$ '
+	};
+	$('#it_amount').autoNumeric('init', options);
+	$('#op_amount').autoNumeric('init', options);
 //	$('#intrans-amount').mask('decimal',{
 //		radixPoint:".", 
 //        groupSeparator: ",", 
@@ -41,6 +44,8 @@ function createSelectAccount(){
 			$('#select-account-from').append(content);
 			
 			$('#select-account-to').append(content);
+			
+			$('#select-account').append(content);
 		},
 		error : function(data, status, error) {
 			$('#select-account-from').html('<div>ERROR</div>');
@@ -80,27 +85,27 @@ function createTabs() {
 	$("#tabs").tabs();
 }
 
-//function createSelectCenter(){
-//$.ajax({
-//	url : '../pfs-rest-service/ws/center/all',
-//	mimeType : 'application/json',
-//	method : 'GET',
-//	dataType : 'json',
-//	success : function(data) {
-//
-//		var content = '<select>'
-//			+'<option/>';
-//		$.each(data.centerEntity, function(index, value) {
-//			content += '<option value=\"'+value.id+'\">' + value.centerType + '</option>';
-//		});
-//		content += '</select>';
-//		$('#select-center').html(content);
-//	},
-//	error : function(data, status, error) {
-//		$('#select-center').html('<div>ERROR</div>');
-//	}
-//});
-//}
+function createSelectCenter() {
+	$.ajax({
+		url : '../pfs-rest-service/ws/center/all',
+		mimeType : 'application/json',
+		method : 'GET',
+		dataType : 'json',
+		success : function(data) {
+
+			var content = '<select>' + '<option/>';
+			$.each(data.centerEntity, function(index, value) {
+				content += '<option value=\"' + value.id + '\">'
+						+ value.name + '</option>';
+			});
+			content += '</select>';
+			$('#select-center').html(content);
+		},
+		error : function(data, status, error) {
+			$('#select-center').html('<div>ERROR</div>');
+		}
+	});
+}
 
 
 /**

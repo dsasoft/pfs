@@ -30,7 +30,7 @@
 				<input type="text" id="it_datepicker" /> 
 				<select id="select-account-from"></select> 
 				<select id="select-account-to"></select>
-				<input type="text" id="it_-amount"> 
+				<input type="text" id="it_amount"> 
 				<input type="button" id="btn-save" value="save" />
 			</div>
 		</div>
@@ -41,22 +41,10 @@
 
 			<input type="text" id="op_datepicker" /> 
 			<input type="text" id="op_amount">
+			<select id="select-center"></select>
 			<select id="select-account"></select>
-			
+			<input type="button" id="btn-save" value="save" />
 			 
-			
-
-			<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus
-				gravida ante, ut pharetra massa metus id nunc. Duis scelerisque
-				molestie turpis. Sed fringilla, massa eget luctus malesuada, metus
-				eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet
-				fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam.
-				Praesent in eros vestibulum mi adipiscing adipiscing. Morbi
-				facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut
-				posuere viverra nulla. Aliquam erat volutpat. Pellentesque
-				convallis. Maecenas feugiat, tellus pellentesque pretium posuere,
-				felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris
-				consectetur tortor et purus.</p>
 		</div>
 	</div>
 </body>
