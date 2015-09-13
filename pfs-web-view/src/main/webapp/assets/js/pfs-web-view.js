@@ -29,11 +29,11 @@ $.fn.serializeObject = function()
 };
 
 $(function() {
-    $('form').submit(function() {
-    	alert('...');
-        $('#result').text(JSON.stringify($('form').serializeObject()));
-        return false;
-    });
+//    $('form').submit(function() {
+//    	alert('...');
+//        $('#result').text(JSON.stringify($('form').serializeObject()));
+//        return false;
+//    });
 });
 
 function applyNumericMask(){

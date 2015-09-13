@@ -27,11 +27,11 @@
 				<strong>Internal transfer panel</strong>
 			</p>
 			<div id="tab1-content">
-				<form action="" method="post">
-					<input id="it_datepicker" type="text"/> 
-					<select id="select-account-from"></select> 
-					<select id="select-account-to"></select>
-					<input id="it_amount" type="text" > 
+				<form action="../pfs-rest-service/ws/intransfer/save" method="post">
+					<input id="it_datepicker" name="it_datepicker" type="text"/> 
+					<select id="select-account-from" name="select-account-from"></select> 
+					<select id="select-account-to" name="select-account-to"></select>
+					<input id="it_amount" name="it_amount" type="text" > 
 					<input id="btn-save" type="submit" value="save" />
 				</form>
 			</div>

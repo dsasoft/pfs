@@ -3,6 +3,9 @@ package br.com.dsasoft.pfs.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public interface Intransfer {
 
 	public Date getDate();
@@ -12,4 +15,12 @@ public interface Intransfer {
 	public Long getAccountTo();
 	
 	public BigDecimal getAmount();
+	
+	public void setDate(Date date);
+	
+	public void setAccountFrom(Long idFrom);
+	
+	public void setAccountTo(Long idTo);
+	
+	public void setAmount(BigDecimal amount);
 }
