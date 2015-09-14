@@ -20,7 +20,11 @@ import br.com.dsasoft.pfs.model.Intransfer;
 @Path("intransfer")
 public class IntransferResources {
 
-	IntransferFacade facade;
+	private IntransferFacade facade;
+	
+	public IntransferResources() {
+		facade = new IntransferFacade(null);
+	}
 	
 	@POST
 	@Path("/save")
