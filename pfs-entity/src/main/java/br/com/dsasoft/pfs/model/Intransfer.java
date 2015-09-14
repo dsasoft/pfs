@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public interface Intransfer {
+	
+	public Long getId();
 
 	public Date getDate();
 	
@@ -15,6 +17,8 @@ public interface Intransfer {
 	public Long getAccountTo();
 	
 	public BigDecimal getAmount();
+	
+	public void setId(Long id);
 	
 	public void setDate(Date date);
 	

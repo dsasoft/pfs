@@ -32,6 +32,10 @@ public class IntransferEntity implements Intransfer {
 	@Column
 	private BigDecimal amount;
 	
+	public Long getId() {
+		return this.id;
+	}
+	
 	public Date getDate() {
 		return this.date;
 	}
@@ -62,6 +66,10 @@ public class IntransferEntity implements Intransfer {
 
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

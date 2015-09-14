@@ -9,12 +9,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import br.com.dsasoft.pfs.entity.IntransferEntity;
+import br.com.dsasoft.pfs.facade.IntransferFacade;
 import br.com.dsasoft.pfs.model.Intransfer;
 
 @Path("intransfer")
 public class IntransferResources {
 
+	IntransferFacade facade;
+	
 	@POST
 	@Path("/save")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -26,12 +33,20 @@ public class IntransferResources {
 		String strAmount = form.getFirst("it_amount");
 		
 		strAmount = strAmount.replace("R$ ", "");
+		strAmount = strAmount.replace(".", "");
 		strAmount = strAmount.replace(",", ".");
+		
+		DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("MM/dd/yyyy");
+		DateTime dt = dtFormatter.parseDateTime(form.getFirst("it_datepicker"));
 		
 		intransfer.setAccountFrom(new Long(form.getFirst("select-account-from")));
 		intransfer.setAccountTo(new Long(form.getFirst("select-account-to")));
 		intransfer.setAmount(new BigDecimal(strAmount));
+		intransfer.setDate(dt.toDate());
 		
+		Long id = facade.create(intransfer);
+		
+		intransfer.setId(id);
 		
 		return intransfer;
 	}
