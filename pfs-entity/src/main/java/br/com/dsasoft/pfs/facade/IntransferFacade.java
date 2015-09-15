@@ -1,16 +1,19 @@
 package br.com.dsasoft.pfs.facade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
+import br.com.dsasoft.pfs.entity.IntransferEntity;
 import br.com.dsasoft.pfs.model.Intransfer;
 
 public class IntransferFacade extends FacadeBase<Intransfer> {
-	
+
 	@PersistenceContext
 	EntityManagerFactory emf;
 
@@ -30,20 +33,31 @@ public class IntransferFacade extends FacadeBase<Intransfer> {
 
 	@Override
 	public List<Intransfer> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+		em.getTransaction().begin();
+		Query query = em.createQuery("SELECT i FROM IntransferEntity i ");
+		@SuppressWarnings("unchecked")
+		List<IntransferEntity> list = query.getResultList();
+		em.flush();
+		em.getTransaction().commit();
+		
+		List<Intransfer> l = new ArrayList<Intransfer>();
+				
+		for(Intransfer i : list)
+			l.add(i);
+		
+		return l;
 	}
 
 	@Override
 	public void update(Intransfer t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void delete(Intransfer t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

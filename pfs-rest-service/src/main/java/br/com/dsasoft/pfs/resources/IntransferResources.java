@@ -1,8 +1,10 @@
 package br.com.dsasoft.pfs.resources;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,6 +26,13 @@ public class IntransferResources {
 	
 	public IntransferResources() {
 		facade = new IntransferFacade(null);
+	}
+	
+	@GET
+	@Path("all")
+	@Produces(MediaType.APPLICATION_JSON)	
+	public List<Intransfer> list(){
+		return facade.listAll();
 	}
 	
 	@POST
