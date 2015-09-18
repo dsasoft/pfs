@@ -1,6 +1,7 @@
 package br.com.dsasoft.pfs.resources;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -28,11 +29,18 @@ public class IntransferResources {
 		facade = new IntransferFacade(null);
 	}
 	
+
 	@GET
 	@Path("all")
 	@Produces(MediaType.APPLICATION_JSON)	
-	public List<Intransfer> list(){
-		return facade.listAll();
+	public List<IntransferEntity> list(){
+		
+		List<IntransferEntity> ls = new ArrayList<IntransferEntity>();
+
+		for(Intransfer i : facade.listAll())
+			ls.add((IntransferEntity) i);
+		
+		return ls;
 	}
 	
 	@POST
@@ -57,9 +65,7 @@ public class IntransferResources {
 		intransfer.setAmount(new BigDecimal(strAmount));
 		intransfer.setDate(dt.toDate());
 		
-		Long id = facade.create(intransfer);
-		
-		intransfer.setId(id);
+		facade.create(intransfer);
 		
 		return intransfer;
 	}

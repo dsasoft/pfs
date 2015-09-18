@@ -119,29 +119,3 @@ function createSelectCenter() {
 		}
 	});
 }
-
-
-/**
- * Ajax based function to 
- * access/retrieve data from pfs-rest-service
- * */
-//function getData() {
-//	$.ajax({
-//		url : '../pfs-rest-service/ws/center/all',
-//		mimeType : 'application/json',
-//		method : 'GET',
-//		dataType : 'json',
-//		success : function(data) {
-//
-//			var content = '<ul>';
-//			$.each(data.centerEntity, function(index, value) {
-//				content += '<li>' + value.centerType + '</li>';
-//			});
-//			content += '</ul>';
-//			$('#list-center').html(content);
-//		},
-//		error : function(data, status, error) {
-//			$('#list-center').html('<div>ERROR</div>');
-//		}
-//	});
-//}

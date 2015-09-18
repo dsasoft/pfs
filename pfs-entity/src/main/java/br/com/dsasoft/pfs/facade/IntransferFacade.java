@@ -55,7 +55,7 @@ public class IntransferFacade extends FacadeBase<Intransfer> {
 	}
 
 	@Override
-	public void delete(Intransfer t) {
+	public void delete(Intransfer t) {	
 		// TODO Auto-generated method stub
 
 	}
