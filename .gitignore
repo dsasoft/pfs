@@ -9,8 +9,12 @@
 # Eclipse files
 
 
-# **/.classpath
-# **/.project
+**/.classpath
+**/.project
+
+*.classpath
+*.project
+
 **/.settings/
 /.settings
 /build
@@ -37,3 +41,5 @@ logs/
 
 *~
 
+
+*.DS_Store
