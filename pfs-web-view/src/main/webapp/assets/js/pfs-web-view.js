@@ -1,8 +1,6 @@
 /**
  * TODO: ** Create documentation ** 
  */
-
-
 $(document).ready(function() {
 	createTabs();
 	createDatePicker();
