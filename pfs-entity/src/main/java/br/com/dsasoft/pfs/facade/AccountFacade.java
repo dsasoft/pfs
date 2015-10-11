@@ -6,27 +6,34 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
 import br.com.dsasoft.pfs.entity.AccountEntity;
 
 public class AccountFacade extends FacadeBase<AccountEntity> {
 
-	@PersistenceContext
+	@PersistenceUnit(unitName = "pfs-entity")
 	EntityManagerFactory emf;
 
+	@PersistenceContext
 	EntityManager em;
 	
 	public AccountFacade(EntityManager em) {
 		super(em);
-		emf = Persistence.createEntityManagerFactory("pfs-entity");
-		this.em = emf.createEntityManager();
+		if(em != null && em.isOpen())
+			this.em = em;
+		else{
+			emf = Persistence.createEntityManagerFactory("pfs-entity");
+			this.em = emf.createEntityManager();
+		}
 	}
+	
 
 	@Override
 	public AccountEntity findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		AccountEntity a = em.find(AccountEntity.class, id);
+		return a;
 	}
 
 	@Override
@@ -56,6 +63,4 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 }

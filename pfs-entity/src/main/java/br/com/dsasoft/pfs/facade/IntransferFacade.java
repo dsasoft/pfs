@@ -1,5 +1,6 @@
 package br.com.dsasoft.pfs.facade;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +8,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
+import br.com.dsasoft.pfs.entity.AccountEntity;
 import br.com.dsasoft.pfs.entity.IntransferEntity;
+import br.com.dsasoft.pfs.model.Account;
 import br.com.dsasoft.pfs.model.Intransfer;
 
 public class IntransferFacade extends FacadeBase<Intransfer> {
 
+	@PersistenceUnit(unitName = "pfs-entity") 
 	@PersistenceContext
 	EntityManagerFactory emf;
 
@@ -27,8 +32,10 @@ public class IntransferFacade extends FacadeBase<Intransfer> {
 
 	@Override
 	public Intransfer findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Intransfer i = (Intransfer)	em.find(AccountEntity.class, id);
+		em.flush();
+		return i;
 	}
 
 	@Override
@@ -63,6 +70,18 @@ public class IntransferFacade extends FacadeBase<Intransfer> {
 	@Override
 	public Long create(Intransfer t) {
 		em.getTransaction().begin();
+		
+		AccountFacade fAccount = new AccountFacade(em);
+		
+		Account from = fAccount.findById(t.getAccountFrom());
+		Account to = fAccount.findById(t.getAccountTo());
+
+		BigDecimal fBalanceFrom = from.getBalance().subtract(t.getAmount());
+		BigDecimal fBalanceTo = to.getBalance().add(t.getAmount());
+		
+		from.setBalance(fBalanceFrom);
+		to.setBalance(fBalanceTo);
+		
 		em.persist(t);
 		em.flush();
 		em.getTransaction().commit();

@@ -29,6 +29,14 @@ public class IntransferResources {
 		facade = new IntransferFacade(null);
 	}
 	
+	
+	@GET
+	@Path("list")
+	@Produces(value={"application/json; charset=UTF-8"})	
+	public List<Intransfer> listAll(){
+		
+		return facade.listAll();
+	}
 
 	@GET
 	@Path("all")
