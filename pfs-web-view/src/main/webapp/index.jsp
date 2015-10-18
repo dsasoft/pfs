@@ -27,12 +27,12 @@
 				<strong>Operation panel</strong>
 			</p>
 
-			<form action="../pfs-rest-service/ws/operation/save" method="POST">
-				<input type="text" id="op_datepicker" /> 
-				<input type="text" id="op_amount">
+			<form action="#" method="POST">
+				<input id="op_datepicker" ype="text"  /> 
+				<input id="op_amount" type="text" >
 				<select id="select-center"></select>
 				<select id="select-account"></select>
-				<input type="button" id="op_btn-save" value="save" />
+				<input id="op_btn-save" type="button" value="save" />
 			</form>
 		</div>
 		

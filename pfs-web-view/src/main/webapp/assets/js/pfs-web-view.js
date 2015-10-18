@@ -1,8 +1,6 @@
 /**
  * TODO: ** Create documentation ** 
  */
-
-
 $(document).ready(function() {
 	createTabs();
 	createDatePicker();
@@ -11,29 +9,20 @@ $(document).ready(function() {
 	createSelectCenter();
 });
 
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
-
-$(function() {
-//    $('form').submit(function() {
-//    	alert('...');
-//        $('#result').text(JSON.stringify($('form').serializeObject()));
-//        return false;
-//    });
+$(document).ready(function(){
+	$('#op_btn-save').click(function(){
+		$.ajax({
+			url : '../pfs-rest-service/ws/operation/save',
+			mimeType : 'application/json',
+			method : 'GET',
+			dataType : 'json',
+			//TODO: content: JSON.stringfy({ 'field-1:' + $('field-1').value });
+			success : function(data) {
+				//TODO: parse the response to $('#result').append('html')
+			},
+			error : function(data, status, error) {}
+		});
+	});
 });
 
 function applyNumericMask(){
@@ -119,3 +108,28 @@ function createSelectCenter() {
 		}
 	});
 }
+
+//$.fn.serializeObject = function()
+//{
+//  var o = {};
+//  var a = this.serializeArray();
+//  $.each(a, function() {
+//      if (o[this.name] !== undefined) {
+//          if (!o[this.name].push) {
+//              o[this.name] = [o[this.name]];
+//          }
+//          o[this.name].push(this.value || '');
+//      } else {
+//          o[this.name] = this.value || '';
+//      }
+//  });
+//  return o;
+//};
+//
+//$(function() {
+//  $('form').submit(function() {
+//  	alert('...');
+//      $('#result').text(JSON.stringify($('form').serializeObject()));
+//      return false;
+//  });
+//});
