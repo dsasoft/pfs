@@ -44,15 +44,15 @@
 						</div>
 						<div class="form-group">
 							<label for="select-account-from"><!--//TODO: I18n -->From:</label>
-							<select class="form-control" id="select-account-from" name="select-account-from"></select>
+							<select id="select-account-from" name="select-account-from" class="form-control"></select>
 						</div>
 						<div class="form-group">
 							<label for="select-account-to"><!--//TODO: I18n -->To:</label>
-							<select class="form-control" id="select-account-to" name="select-account-to"></select> 
+							<select id="select-account-to" name="select-account-to" class="form-control"></select> 
 						</div>
 						<div class="form-group">
-							<label for="it_amount"><!--//TODO: I18n -->To:</label>
-							<input id="it_amount" name="it_amount" type="text">
+							<label for="it_amount"><!--//TODO: I18n -->Amount:</label>
+							<input id="it_amount" name="it_amount" type="text" class="form-control">
 						</div>
 
 						<input class="btn btn-default" id="btn-save" type="submit" value="save" />
