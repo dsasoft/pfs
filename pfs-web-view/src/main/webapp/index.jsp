@@ -1,3 +1,5 @@
+<%-- <%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%> --%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +21,18 @@
 .ui-widget input {
 	width: 110px;
 }
+
+#content-wrapper{
+	margin: 0px auto;
+	max-width: 640px;
+}
 </style>
 </head>
 <body>
-	<div id="content">
+<!-- <fmt:bundle basename="br.com.dsasoft.i18n.messages" prefix="pfs-web-view."></fmt:bundle> -->
+	<div id="content-wrapper">
 		<h2>Personal Financial Statement</h2>
-
+<!-- 		<h2><fmt:message key="hello-world"/> </h2> -->
 		<div id="tabs">
 
 			<ul>
