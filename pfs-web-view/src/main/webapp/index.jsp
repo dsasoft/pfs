@@ -33,14 +33,14 @@
 			</ul>
 			<div id="tabs-1">
 				<p>
-					<strong>Internal transfer panel</strong>
+					<strong>Internal transfer</strong>
 				</p>
 				<div id="tab1-content">
 
 					<form role="form" action="../pfs-rest-service/ws/intransfer/save" method="post">
 						<div class="form-group">
 							<label for="it_datepicker"><!--//TODO: I18n -->Date:</label>
-							<input id="it_datepicker" name="it_datepicker" type="text" class="form-control"/> 
+							<input id="it_datepicker" name="it_datepicker" type="text" class=""/> 
 						</div>
 						<div class="form-group">
 							<label for="select-account-from"><!--//TODO: I18n -->From:</label>
