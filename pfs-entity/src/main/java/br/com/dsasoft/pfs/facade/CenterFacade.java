@@ -8,54 +8,54 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import br.com.dsasoft.pfs.entity.AccountEntity;
+import br.com.dsasoft.pfs.entity.CenterEntity;
 
-public class AccountFacade extends FacadeBase<AccountEntity> {
+public class CenterFacade extends FacadeBase<CenterEntity> {
 
 	@PersistenceContext
 	EntityManagerFactory emf;
 
 	EntityManager em;
 	
-	public AccountFacade(EntityManager em) {
+	public CenterFacade(EntityManager em) {
 		super(em);
 		emf = Persistence.createEntityManagerFactory("pfs-entity");
 		this.em = emf.createEntityManager();
 	}
 
 	@Override
-	public AccountEntity findById(Long id) {
+	public CenterEntity findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<AccountEntity> listAll() {
+	public List<CenterEntity> listAll() {
 		Query query = 
-				em.createQuery("SELECT a FROM AccountEntity AS a");
+				em.createQuery("SELECT c FROM CenterEntity AS c");
 		
 		@SuppressWarnings("unchecked")
-		List<AccountEntity> list = query.getResultList();
+		List<CenterEntity> list = query.getResultList();		
+
 		return list;
 	}
 
 	@Override
-	public void update(AccountEntity t) {
+	public void update(CenterEntity t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void delete(AccountEntity t) {
+	public void delete(CenterEntity t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Long create(AccountEntity t) {
+	public Long create(CenterEntity t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 }

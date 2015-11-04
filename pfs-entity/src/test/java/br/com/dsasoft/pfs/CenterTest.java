@@ -44,9 +44,9 @@ public class CenterTest {
 		cIn.setCenterType(CenterType.INCOME);
 		
 		em.getTransaction().begin();
-		
-		em.persist(cOut);
-		em.persist(cIn);
+
+//		em.merge(cIn);
+//		em.merge(cOut);
 		
 		em.getTransaction().commit();
 	}
