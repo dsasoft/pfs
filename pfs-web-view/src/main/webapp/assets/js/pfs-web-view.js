@@ -13,7 +13,14 @@ $(document).ready(function() {
 $(document).ready(function(){
 	$('#btn-save-operation').click(function(){
 		var operationForm = operationFormToJSON();
-		$('#result').html(operationForm);
+		$('#result').fadeIn(1500, function(){
+			$(this).html(operationForm);
+		});
+		setTimeout(function(){ 
+			$('#result').fadeOut(5000,function(){
+				$(this).html('');
+			});
+		}, 5000);
 	});
 });
 

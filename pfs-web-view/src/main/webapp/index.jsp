@@ -85,9 +85,8 @@
 					<input class="btn btn-default" id="btn-save-operation" type="button" value="save" />
 				</form>
 			</div>
-		</div>
-
-	</div>
+		</div><!-- #tabs -->
+	</div><!--  #content-wrapper -->
 
 	<div id="result"></div>
 </body>
