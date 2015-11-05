@@ -54,7 +54,7 @@
 							<input id="it_amount" name="it_amount" type="text" class="form-control">
 						</div>
 
-						<input class="btn btn-default" id="btn-save" type="submit" value="save" />
+						<input class="btn btn-default" id="btn-save-intransfer" type="submit" value="save" />
 					</form>
 				</div>
 			</div>
@@ -63,11 +63,27 @@
 					<strong>Operation panel</strong>
 				</p>
 
-				<input type="text" id="op_datepicker" /> <input type="text"
-					id="op_amount"> <select id="select-center"></select> <select
-					id="select-account"></select> <input type="button" id="btn-save"
-					value="save" />
-
+				<form role="form" action="../pfs-rest-service/ws/operation/save" method="post">
+				
+					<div class="form-group">
+						<label for="op_datepicker"><!--//TODO: I18n -->Date:</label>
+						<input id="op_datepicker" type="text"/> 
+					</div>
+					<div class="form-group">
+						<label for="op_amount"><!--//TODO: I18n -->Amount:</label>
+						<input id="op_amount" type="text" class="form-control"/> 
+					</div>
+					<div class="form-group">
+						<label for="select-center"><!--//TODO: I18n -->Center:</label>
+						<select id="select-center" class="form-control"></select> 
+					</div>
+					<div class="form-group">
+						<label for="select-account"><!--//TODO: I18n -->Account:</label>
+						<select id="select-account" class="form-control"></select>
+					</div>
+					
+					<input class="btn btn-default" id="btn-save-operation" type="button" value="save" />
+				</form>
 			</div>
 		</div>
 

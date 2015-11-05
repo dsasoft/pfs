@@ -9,22 +9,29 @@ $(document).ready(function() {
 	createSelectCenter();
 });
 
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
+
+$(document).ready(function(){
+	$('#btn-save-operation').click(function(){
+		var operationForm = operationFormToJSON();
+		$('#result').html(operationForm);
+	});
+});
+
+/**
+ * op_datepicker
+ * op_amount
+ * select-center
+ * select-account
+ * */
+function operationFormToJSON(){
+	return JSON.stringify({
+		"date":$('#op_datepicker').val(),
+		"amount":$('#op_amount').val(),
+		"center":$('#select-center').val(),
+		"account":$('#select-account').val()
+	});
+}
+
 
 $(function() {
 //    $('form').submit(function() {
@@ -105,10 +112,13 @@ function createSelectCenter() {
 		success : function(data) {
 
 			var content = '<select>' + '<option/>';
-			$.each(data.centerEntity, function(index, value) {
-				content += '<option value=\"' + value.id + '\">'
-						+ value.name + '</option>';
-			});
+			
+			if(! $.isEmptyObject(data)){
+				$.each(data.centerEntity, function(index, value) {
+					content += '<option value=\"' + value.id + '\">'
+					+ value.name + '</option>';
+				});
+			}
 			content += '</select>';
 			$('#select-center').html(content);
 		},
