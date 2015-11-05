@@ -16,17 +16,8 @@
 
 <link rel="stylesheet" type="text/css" href="assets/bootstrap.3.3.5/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="assets/jquery/ui/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/pfs-web-view.css" />
 
-<style type="text/css">
-.ui-widget input {
-	width: 110px;
-}
-
-#content-wrapper{
-	margin: 0px auto;
-	max-width: 640px;
-}
-</style>
 </head>
 <body>
 <!-- <fmt:bundle basename="br.com.dsasoft.i18n.messages" prefix="pfs-web-view."></fmt:bundle> -->

@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	font: 110% "Trebuchet MS", verdana, arial, tahoma, sans-serif;
+}
+
+.ui-widget input {
+	width: 110px;
+}
+
+#content-wrapper{
+	margin: 0px auto;
+	max-width: 640px;
+}
