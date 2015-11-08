@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	font: 110% "Trebuchet MS", verdana, arial, tahoma, sans-serif;
+}
+
+.ui-widget input {
+	width: 110px;
+}
+
+#content-wrapper{
+	margin: 0px auto;
+	max-width: 640px;
+}
+
+#result{
+	display: none;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	max-width: 320px;
+	height: 80px;	
+	background-color: #c6c6c6;
+	padding: 0.5em;
+	
+	
+    text-align: left;
+    padding: 8px;
+    font-size: .8em;
+    line-height: 1.5em;    
+    border: solid 1px #aaa;
+    border-radius: 8px;
+    pointer-events: none;
+    white-space: pre-wrap;      CSS3   
+    white-space: -moz-pre-wrap; Firefox    
+    white-space: -pre-wrap;     Opera <7   
+    white-space: -o-pre-wrap;   Opera 7    
+    word-wrap: break-word;      IE
+}

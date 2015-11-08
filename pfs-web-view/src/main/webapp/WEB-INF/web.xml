@@ -3,5 +3,9 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>PFS - Personal Financial Statement</display-name>
+	<display-name>PFS - Personal Financial Statement</display-name>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.LocalizationContext</param-name>
+		<param-value>br.com.dsasoft.i18n.messages</param-value>
+	</context-param>
 </web-app>

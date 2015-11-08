@@ -10,19 +10,41 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
-	$('#op_btn-save').click(function(){
-		$.ajax({
-			url : '../pfs-rest-service/ws/operation/save',
-			mimeType : 'application/json',
-			method : 'GET',
-			dataType : 'json',
-			//TODO: content: JSON.stringfy({ 'field-1:' + $('field-1').value });
-			success : function(data) {
-				//TODO: parse the response to $('#result').append('html')
-			},
-			error : function(data, status, error) {}
+	$('#btn-save-operation').click(function(){
+		var operationForm = operationFormToJSON();
+		$('#result').fadeIn(1500, function(){
+			$(this).html(operationForm);
 		});
+		setTimeout(function(){ 
+			$('#result').fadeOut(5000,function(){
+				$(this).html('');
+			});
+		}, 5000);
 	});
+});
+
+/**
+ * op_datepicker
+ * op_amount
+ * select-center
+ * select-account
+ * */
+function operationFormToJSON(){
+	return JSON.stringify({
+		"date":$('#op_datepicker').val(),
+		"amount":$('#op_amount').val(),
+		"center":$('#select-center').val(),
+		"account":$('#select-account').val()
+	});
+}
+
+
+$(function() {
+//    $('form').submit(function() {
+//    	alert('...');
+//        $('#result').text(JSON.stringify($('form').serializeObject()));
+//        return false;
+//    });
 });
 
 function applyNumericMask(){
@@ -96,10 +118,13 @@ function createSelectCenter() {
 		success : function(data) {
 
 			var content = '<select>' + '<option/>';
-			$.each(data.centerEntity, function(index, value) {
-				content += '<option value=\"' + value.id + '\">'
-						+ value.name + '</option>';
-			});
+			
+			if(! $.isEmptyObject(data)){
+				$.each(data.centerEntity, function(index, value) {
+					content += '<option value=\"' + value.id + '\">'
+					+ value.name + '</option>';
+				});
+			}
 			content += '</select>';
 			$('#select-center').html(content);
 		},
