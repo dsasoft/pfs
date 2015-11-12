@@ -13,14 +13,27 @@ $(document).ready(function() {
 $(document).ready(function(){
 	$('#btn-save-operation').click(function(){
 		var operationForm = operationFormToJSON();
-		$('#result').fadeIn(1500, function(){
-			$(this).html(operationForm);
+		$('body').append('<span>' + operationForm + '</span>')
+		$.ajax({
+			url: '../pfs-rest-service/ws/operation/save',
+			mimeType: 'application/json',
+			method: 'POST',
+			dataType: 'json',
+			data: operationForm,
+			success: function(data){
+				
+				$('#result').fadeIn(1500, function(){
+					$(this).html(operationForm);
+				});
+				setTimeout(function(){ 
+					$('#result').fadeOut(5000,function(){
+						$(this).html('');
+					});
+				}, 5000);
+			},
+			error: function(data, status, error){}
 		});
-		setTimeout(function(){ 
-			$('#result').fadeOut(5000,function(){
-				$(this).html('');
-			});
-		}, 5000);
+			
 	});
 });
 
@@ -38,15 +51,6 @@ function operationFormToJSON(){
 		"account":$('#select-account').val()
 	});
 }
-
-
-$(function() {
-//    $('form').submit(function() {
-//    	alert('...');
-//        $('#result').text(JSON.stringify($('form').serializeObject()));
-//        return false;
-//    });
-});
 
 function applyNumericMask(){
 	var options = {
@@ -80,16 +84,6 @@ function createSelectAccount(){
 			$('#select-account-from').html('<div>ERROR</div>');
 		}
 	});
-}
-
-function createSelectAccountTo(data, idx){
-	
-	//TODO: Create logic...
-	
-	$.each(data.accountEntity, function(index, value){
-		//if(value.id == index) skip to next...
-	});
-	//$('#select-account-to').append(content);
 }
 
 function createDatePicker() {
@@ -134,29 +128,3 @@ function createSelectCenter() {
 		}
 	});
 }
-
-
-/**
- * Ajax based function to 
- * access/retrieve data from pfs-rest-service
- * */
-//function getData() {
-//	$.ajax({
-//		url : '../pfs-rest-service/ws/center/all',
-//		mimeType : 'application/json',
-//		method : 'GET',
-//		dataType : 'json',
-//		success : function(data) {
-//
-//			var content = '<ul>';
-//			$.each(data.centerEntity, function(index, value) {
-//				content += '<li>' + value.centerType + '</li>';
-//			});
-//			content += '</ul>';
-//			$('#list-center').html(content);
-//		},
-//		error : function(data, status, error) {
-//			$('#list-center').html('<div>ERROR</div>');
-//		}
-//	});
-//}

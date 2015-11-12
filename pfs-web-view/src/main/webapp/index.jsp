@@ -7,13 +7,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script type="text/javascript" src="assets/jquery/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="assets/jquery/jquery.mask.min.js"></script>
-<script type="text/javascript" src="assets/jquery/autoNumeric.js"></script>
-<script type="text/javascript" src="assets/jquery/ui/jquery-ui.js"></script>
-<script type="text/javascript" src="assets/js/pfs-web-view.js"></script>
-<script type="text/javascript" src="assets/bootstrap.3.3.5/js/bootstrap.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="assets/bootstrap.3.3.5/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="assets/jquery/ui/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/pfs-web-view.css" />
@@ -89,5 +82,11 @@
 	</div><!--  #content-wrapper -->
 
 	<div id="result"></div>
+	<script type="text/javascript" src="assets/jquery/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="assets/jquery/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="assets/jquery/autoNumeric.js"></script>
+	<script type="text/javascript" src="assets/jquery/ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="assets/js/pfs-web-view.js"></script>
+	<script type="text/javascript" src="assets/bootstrap.3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

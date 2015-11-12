@@ -1,7 +1,8 @@
 @CHARSET "ISO-8859-1";
 
 body{
-	font: 110% "Trebuchet MS", verdana, arial, tahoma, sans-serif;
+	font: 110% "Ubuntu Mono",Menlo,Monaco,Consolas,"Courier New",monospace;
+	/* "Trebuchet MS", verdana, arial, tahoma, sans-serif; */
 }
 
 .ui-widget input {
