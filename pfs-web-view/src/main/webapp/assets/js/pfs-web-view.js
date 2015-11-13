@@ -13,7 +13,7 @@ $(document).ready(function() {
 $(document).ready(function(){
 	$('#btn-save-operation').click(function(){
 		var operationForm = operationFormToJSON();
-		$('body').append('<span>' + operationForm + '</span>')
+		$(this).prop('disabled',true);
 		$.ajax({
 			url: '../pfs-rest-service/ws/operation/save',
 			mimeType: 'application/json',
@@ -23,6 +23,8 @@ $(document).ready(function(){
 			data: operationForm,
 			success: function(data){
 				
+				$('body').append('<span>' + JSON.stringify(data) + '</span>')
+				
 				$('#result').fadeIn(1500, function(){
 					$(this).html(operationForm);
 				});
@@ -30,7 +32,9 @@ $(document).ready(function(){
 					$('#result').fadeOut(5000,function(){
 						$(this).html('');
 					});
+					$('#btn-save-operation').prop('disabled',false);
 				}, 5000);
+				
 			},
 			error: function(data, status, error){}
 		});
