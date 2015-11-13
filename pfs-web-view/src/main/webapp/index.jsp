@@ -86,7 +86,7 @@
 	<script type="text/javascript" src="assets/jquery/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="assets/jquery/autoNumeric.js"></script>
 	<script type="text/javascript" src="assets/jquery/ui/jquery-ui.js"></script>
-	<script type="text/javascript" src="assets/js/pfs-web-view.js"></script>
 	<script type="text/javascript" src="assets/bootstrap.3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/pfs-web-view.js"></script>
 </body>
 </html>

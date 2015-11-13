@@ -13,7 +13,7 @@ public class OperationResources {
 
 	@XmlAccessorType(XmlAccessType.FIELD)
 	@XmlRootElement
-	class A{
+	static class A{
 		
 		private String date;
 		private String amount;

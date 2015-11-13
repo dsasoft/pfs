@@ -17,6 +17,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '../pfs-rest-service/ws/operation/save',
 			mimeType: 'application/json',
+			contentType : 'application/json',
 			method: 'POST',
 			dataType: 'json',
 			data: operationForm,
