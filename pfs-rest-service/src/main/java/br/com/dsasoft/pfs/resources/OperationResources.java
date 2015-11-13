@@ -13,7 +13,7 @@ public class OperationResources {
 
 	@XmlAccessorType(XmlAccessType.FIELD)
 	@XmlRootElement
-	static class A{
+	static class OperationRequest{
 		
 		private String date;
 		private String amount;
@@ -48,7 +48,7 @@ public class OperationResources {
 	@POST
 	@Consumes("application/json")
 	@Path("save")
-	public Response save( A a ){
+	public Response save( OperationRequest a ){
 		return Response.status(201).entity("{\"property\":\"value\"}").build();
 	}
 }

@@ -49,12 +49,19 @@ $(document).ready(function(){
  * select-account
  * */
 function operationFormToJSON(){
-	return JSON.stringify({
+	var stringified = JSON.stringify({
 		"date":$('#op_datepicker').val(),
 		"amount":$('#op_amount').val(),
 		"center":$('#select-center').val(),
 		"account":$('#select-account').val()
 	});
+	
+	$('#op_datepicker').val('');
+	$('#op_amount').val('');
+	$('#select-center').val('');
+	$('#select-account').val('');
+	
+	return stringified;
 }
 
 function applyNumericMask(){
