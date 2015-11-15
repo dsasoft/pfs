@@ -12,14 +12,32 @@ $(document).ready(function() {
 $(document).ready(function(){
 	$('#btn-save-operation').click(function(){
 		var operationForm = operationFormToJSON();
-		$('#result').fadeIn(1500, function(){
-			$(this).html(operationForm);
+		$(this).prop('disabled',true);
+		$.ajax({
+			url: '../pfs-rest-service/ws/operation/save',
+			mimeType: 'application/json',
+			contentType : 'application/json',
+			method: 'POST',
+			dataType: 'json',
+			data: operationForm,
+			success: function(data){
+				
+				$('body').append('<span>' + JSON.stringify(data) + '</span>')
+				
+				$('#result').fadeIn(1500, function(){
+					$(this).html(operationForm);
+				});
+				setTimeout(function(){ 
+					$('#result').fadeOut(5000,function(){
+						$(this).html('');
+					});
+					$('#btn-save-operation').prop('disabled',false);
+				}, 5000);
+				
+			},
+			error: function(data, status, error){}
 		});
-		setTimeout(function(){ 
-			$('#result').fadeOut(5000,function(){
-				$(this).html('');
-			});
-		}, 5000);
+			
 	});
 });
 
@@ -30,22 +48,20 @@ $(document).ready(function(){
  * select-account
  * */
 function operationFormToJSON(){
-	return JSON.stringify({
+	var stringified = JSON.stringify({
 		"date":$('#op_datepicker').val(),
 		"amount":$('#op_amount').val(),
 		"center":$('#select-center').val(),
 		"account":$('#select-account').val()
 	});
+	
+	$('#op_datepicker').val('');
+	$('#op_amount').val('');
+	$('#select-center').val('');
+	$('#select-account').val('');
+	
+	return stringified;
 }
-
-
-$(function() {
-//    $('form').submit(function() {
-//    	alert('...');
-//        $('#result').text(JSON.stringify($('form').serializeObject()));
-//        return false;
-//    });
-});
 
 function applyNumericMask(){
 	var options = {
@@ -79,16 +95,6 @@ function createSelectAccount(){
 			$('#select-account-from').html('<div>ERROR</div>');
 		}
 	});
-}
-
-function createSelectAccountTo(data, idx){
-	
-	//TODO: Create logic...
-	
-	$.each(data.accountEntity, function(index, value){
-		//if(value.id == index) skip to next...
-	});
-	//$('#select-account-to').append(content);
 }
 
 function createDatePicker() {
@@ -133,28 +139,3 @@ function createSelectCenter() {
 		}
 	});
 }
-
-//$.fn.serializeObject = function()
-//{
-//  var o = {};
-//  var a = this.serializeArray();
-//  $.each(a, function() {
-//      if (o[this.name] !== undefined) {
-//          if (!o[this.name].push) {
-//              o[this.name] = [o[this.name]];
-//          }
-//          o[this.name].push(this.value || '');
-//      } else {
-//          o[this.name] = this.value || '';
-//      }
-//  });
-//  return o;
-//};
-//
-//$(function() {
-//  $('form').submit(function() {
-//  	alert('...');
-//      $('#result').text(JSON.stringify($('form').serializeObject()));
-//      return false;
-//  });
-//});
