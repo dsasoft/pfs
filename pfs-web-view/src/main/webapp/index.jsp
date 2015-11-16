@@ -15,7 +15,7 @@
 <body>
 	<!-- <fmt:bundle basename="br.com.dsasoft.i18n.messages" prefix="pfs-web-view."></fmt:bundle> -->
 	<div id="content-wrapper">
-		<h2>Personal Financial Statement</h2>
+<!-- 		<h2>Personal Financial Statement</h2> -->
 		<!-- 		<h2><fmt:message key="hello-world"/> </h2> -->
 		<div id="tabs">
 

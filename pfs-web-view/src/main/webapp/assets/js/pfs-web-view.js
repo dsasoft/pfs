@@ -10,6 +10,37 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
+	$('#select-account-from').change(function(){
+		
+		$('#select-account-to').html('');
+		
+		if(! $(this).val()) return;
+		
+		$.ajax({
+			url: '../pfs-rest-service/ws/account/all/except/' + $(this).val(),
+			mimeType: 'application/json',
+			contentType : 'application/json',
+			method: 'GET',
+			dataType: 'json',
+			success:function(data){
+				var content = '<select>';
+				
+				if( $.isArray(data.accountEntity)){
+					$.each(data.accountEntity, function(index, value) {
+						content += '<option value=\"'+value.id+'\">' + value.name + '</option>';
+					});
+				}else{
+					content += '<option value=\"'+data.accountEntity.id+'\">' + data.accountEntity.name + '</option>'; 
+				}
+				content += '</select>';
+				$('#select-account-to').html(content);
+			},
+			error:function(data, status, error){}
+		});
+	})
+});
+
+$(document).ready(function(){
 	$('#btn-save-operation').click(function(){
 		var operationForm = operationFormToJSON();
 		$(this).prop('disabled',true);
@@ -21,8 +52,6 @@ $(document).ready(function(){
 			dataType: 'json',
 			data: operationForm,
 			success: function(data){
-				
-				$('body').append('<span>' + JSON.stringify(data) + '</span>')
 				
 				$('#result').fadeIn(1500, function(){
 					$(this).html(operationForm);
@@ -86,8 +115,6 @@ function createSelectAccount(){
 				content += '<option value=\"'+value.id+'\">' + value.name + '</option>';
 			});
 			$('#select-account-from').append(content);
-			
-			$('#select-account-to').append(content);
 			
 			$('#select-account').append(content);
 		},

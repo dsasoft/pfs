@@ -45,6 +45,17 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 		List<AccountEntity> list = query.getResultList();
 		return list;
 	}
+	
+	public List<AccountEntity> listAllExceptId(Long id){
+		Query query = 
+				em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.id NOT IN (:id) ");
+		
+		query.setParameter("id", id);
+		
+		@SuppressWarnings("unchecked")
+		List<AccountEntity> list = query.getResultList();
+		return list;
+	}
 
 	@Override
 	public void update(AccountEntity t) {

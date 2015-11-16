@@ -35,4 +35,11 @@ public class AccountResources {
 	public Account getAccount(@PathParam("id") Long id){
 		return facade.findById(id);
 	}
+	@GET
+	@Path("/all/except/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<AccountEntity> listAccount(@PathParam("id") Long id){
+		AccountFacade facadeAccount = new AccountFacade(null);
+		return facadeAccount.listAllExceptId(id);
+	}
 }
