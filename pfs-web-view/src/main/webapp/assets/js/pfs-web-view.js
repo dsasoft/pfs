@@ -7,7 +7,42 @@ $(document).ready(function() {
 	createSelectAccount();
 	applyNumericMask();
 	createSelectCenter();
+	
+	$("#it_frm").validate({
+		rules : {
+			it_datepicker : {
+				required : true,
+				date : true
+			},	
+			'select-account-from' : { 
+				required : true 
+			}
+		},
+		
+		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
+		
+		onfocusout: true,
+		
+		focusCleanup: true,
+		
+		messages:{
+			it_datepicker : '',
+			'select-account-from': ''
+		},
+		errorPlacement: function(error, element) {
+			if (element.attr("name") == "select-account-from") {
+		      error.insertBefore("#select-account-from");
+		    } else {
+		    	error.insertAfter(element);
+		    }
+		},
+		submitHandler: function(form) {
+			alert('');
+			form.submit();
+		}
+	});
 });
+
 
 $(document).ready(function(){
 	$('#select-account-from').change(function(){
@@ -23,14 +58,17 @@ $(document).ready(function(){
 			method: 'GET',
 			dataType: 'json',
 			success:function(data){
-				var content = '<select>';
 				
-				if( $.isArray(data.accountEntity)){
-					$.each(data.accountEntity, function(index, value) {
+				var _object = data.accountEntity;
+				
+				var content = '<select>';
+				if( $.isArray(_object)){
+					
+					$.each(_object, function(index, value) {
 						content += '<option value=\"'+value.id+'\">' + value.name + '</option>';
 					});
 				}else{
-					content += '<option value=\"'+data.accountEntity.id+'\">' + data.accountEntity.name + '</option>'; 
+					content += '<option value=\"'+ _object.id +'\">' + _object.name + '</option>'; 
 				}
 				content += '</select>';
 				$('#select-account-to').html(content);

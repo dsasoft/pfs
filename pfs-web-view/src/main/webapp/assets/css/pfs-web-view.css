@@ -5,6 +5,11 @@ body{
 	/* "Trebuchet MS", verdana, arial, tahoma, sans-serif; */
 }
 
+.has-error{
+	border-color: red;
+	font-weight: bold;
+}
+
 .ui-widget input {
 	width: 110px;
 }

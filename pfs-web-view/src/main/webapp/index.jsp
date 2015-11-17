@@ -29,13 +29,12 @@
 				</p>
 				<div id="tab1-content">
 
-					<form role="form" action="../pfs-rest-service/ws/intransfer/save"
+					<form id="it_frm" name="it_frm" class="frm" role="form" action="../pfs-rest-service/ws/intransfer/save"
 						method="post">
 						<div class="form-group">
 							<label for="it_datepicker">
 								<!--//TODO: I18n -->Date:
-							</label> <input id="it_datepicker" name="it_datepicker" type="text"
-								class="" />
+							</label> <input id="it_datepicker" name="it_datepicker" type="text"/>
 						</div>
 						<div class="form-group">
 							<label for="select-account-from">
@@ -50,7 +49,7 @@
 						<div class="form-group">
 							<label for="it_amount">
 								<!--//TODO: I18n -->Amount:
-							</label> <input id="it_amount" name="it_amount" type="text" class="form-control"/>
+							</label> <input id="it_amount" name="it_amount" type="text" class="form-control control-group error"/>
 						</div>
 
 						<div class="form-group">
@@ -109,6 +108,7 @@
 	<script type="text/javascript" src="assets/jquery/jquery-1.11.3.js"></script>
 	<script type="text/javascript" src="assets/jquery/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="assets/jquery/autoNumeric.js"></script>
+	<script type="text/javascript" src="assets/jquery/jquery.validate.min.js "></script>
 	<script type="text/javascript" src="assets/jquery/ui/jquery-ui.js"></script>
 	<script type="text/javascript" src="assets/bootstrap.3.3.5/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets/js/pfs-web-view.js"></script>
