@@ -70,26 +70,27 @@ $(document).ready(function(){
 	});
 });
 
-/**
- * op_datepicker
- * op_amount
- * select-center
- * select-account
- * */
 function operationFormToJSON(){
 	var stringified = JSON.stringify({
 		"date":$('#op_datepicker').val(),
 		"amount":$('#op_amount').val(),
 		"center":$('#select-center').val(),
-		"account":$('#select-account').val()
+		"account":$('#select-account').val(),
+		"description":$('#op_description').val()
 	});
 	
+	cleanOperationForm();
+	
+	return stringified;
+}
+
+function cleanOperationForm(){
+	// Clean Form
 	$('#op_datepicker').val('');
 	$('#op_amount').val('');
 	$('#select-center').val('');
 	$('#select-account').val('');
-	
-	return stringified;
+	$('#op_description').val('');
 }
 
 function applyNumericMask(){

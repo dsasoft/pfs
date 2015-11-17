@@ -40,24 +40,25 @@
 						<div class="form-group">
 							<label for="select-account-from">
 								<!--//TODO: I18n -->From:
-							</label> <select id="select-account-from" name="select-account-from"
-								class="form-control"></select>
+							</label> <select id="select-account-from" name="select-account-from" class="form-control"></select>
 						</div>
 						<div class="form-group">
 							<label for="select-account-to">
 								<!--//TODO: I18n -->To:
-							</label> <select id="select-account-to" name="select-account-to"
-								class="form-control"></select>
+							</label> <select id="select-account-to" name="select-account-to" class="form-control"></select>
 						</div>
 						<div class="form-group">
 							<label for="it_amount">
 								<!--//TODO: I18n -->Amount:
-							</label> <input id="it_amount" name="it_amount" type="text"
-								class="form-control">
+							</label> <input id="it_amount" name="it_amount" type="text" class="form-control"/>
 						</div>
 
-						<input class="btn btn-default" id="btn-save-intransfer"
-							type="submit" value="save" />
+						<div class="form-group">
+							<label for="it_description">
+								<!--//TODO: I18n -->Description:
+							</label> <input id="it_description" name="it_description" type="text" class="form-control input-block-level"/>
+						</div>
+						<input class="btn btn-default" id="btn-save-intransfer" type="submit" value="save" />
 					</form>
 				</div>
 			</div>
@@ -88,6 +89,11 @@
 						<label for="select-account">
 							<!--//TODO: I18n -->Account:
 						</label> <select id="select-account" class="form-control"></select>
+					</div>
+					<div class="form-group">
+						<label for="op_description">
+							<!--//TODO: I18n -->Description:
+						</label> <input id="op_description" name="op_description" type="text" class="form-control input-block-level"/>
 					</div>
 
 					<input class="btn btn-default" id="btn-save-operation"
