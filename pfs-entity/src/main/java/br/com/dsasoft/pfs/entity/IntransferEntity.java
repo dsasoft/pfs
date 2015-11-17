@@ -31,6 +31,8 @@ public class IntransferEntity implements Intransfer {
 	private Long accountTo;
 	@Column
 	private BigDecimal amount;
+	@Column
+	private String description;
 	
 	public Long getId() {
 		return this.id;
@@ -70,6 +72,14 @@ public class IntransferEntity implements Intransfer {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

@@ -32,6 +32,10 @@ public class OperationEntity implements Operation {
 	@Column
 	private BigDecimal amount;
 	
+	@Column
+	private String description;
+	
+
 	public Center getCenter() {
 		return this.center;
 	}
@@ -43,5 +47,12 @@ public class OperationEntity implements Operation {
 	public BigDecimal getAmount() {
 		return this.amount;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
