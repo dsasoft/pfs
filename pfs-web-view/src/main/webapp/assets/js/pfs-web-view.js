@@ -155,8 +155,11 @@ function createSelectCenter() {
 			
 			if(! $.isEmptyObject(data)){
 				$.each(data.centerEntity, function(index, value) {
-					content += '<option value=\"' + value.id + '\">'
-					+ value.name + '</option>';
+					
+					if(value.centerType === 'OUTCOME') //
+						content += '<option  class=\"alert alert-danger\" value=\"' + value.id + '\">' + value.name + '</option>';
+					else
+						content += '<option  value=\"' + value.id + '\">' + value.name + '</option>';
 				});
 			}
 			content += '</select>';
