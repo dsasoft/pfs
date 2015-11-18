@@ -8,6 +8,73 @@ $(document).ready(function() {
 	applyNumericMask();
 	createSelectCenter();
 	
+	// Form validation
+	op_frm_validation();
+	it_frm_validation();
+});
+
+function op_frm_validation(){
+	$("#op_frm").validate({
+		rules : {
+			op_datepicker : {
+				required : true,
+				date : true
+			},	
+			'select-center' : { 
+				required : true 
+			},
+			'select-account' : {
+				required : true
+			},
+			op_amount : {
+				required : true
+			}
+		},
+		
+		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
+		
+		messages:{
+			op_datepicker : '&nbsp;',
+			'select-center' : '',
+			'select-account'  : '',
+			op_amount : ''
+		},
+		errorPlacement : function(error, element) {
+			error.insertBefore(element);
+		},
+		submitHandler: function(form) {
+//			$('#btn-save-operation').click(function(){
+				var operationForm = operationFormToJSON();
+//				$(this).prop('disabled',true);
+				$.ajax({
+					url: '../pfs-rest-service/ws/operation/save',
+					mimeType: 'application/json',
+					contentType : 'application/json',
+					method: 'POST',
+					dataType: 'json',
+					data: operationForm,
+					success: function(data){
+						
+						$('#result').fadeIn(1500, function(){
+							$(this).html(operationForm);
+						});
+						setTimeout(function(){ 
+							$('#result').fadeOut(5000,function(){
+								$(this).html('');
+							});
+							$('#btn-save-operation').prop('disabled',false);
+						}, 5000);
+						
+					},
+					error: function(data, status, error){}
+				});
+//			});
+			form.submit();
+		}
+	});
+}
+
+function it_frm_validation(){
 	$("#it_frm").validate({
 		rules : {
 			it_datepicker : {
@@ -16,33 +83,31 @@ $(document).ready(function() {
 			},	
 			'select-account-from' : { 
 				required : true 
+			},
+			'select-account-to' : {
+				required : true
+			},
+			it_amount : {
+				required : true
 			}
 		},
 		
 		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
 		
-		onfocusout: true,
-		
-		focusCleanup: true,
-		
 		messages:{
-			it_datepicker : '',
-			'select-account-from': ''
+			it_datepicker : '&nbsp;',
+			'select-account-from': '',
+			'select-account-to'  : '',
+			it_amount : ''
 		},
-		errorPlacement: function(error, element) {
-			if (element.attr("name") == "select-account-from") {
-		      error.insertBefore("#select-account-from");
-		    } else {
-		    	error.insertAfter(element);
-		    }
+		errorPlacement : function(error, element) {
+			error.insertBefore(element);
 		},
 		submitHandler: function(form) {
-			alert('');
 			form.submit();
 		}
 	});
-});
-
+}
 
 $(document).ready(function(){
 	$('#select-account-from').change(function(){
@@ -78,35 +143,35 @@ $(document).ready(function(){
 	})
 });
 
-$(document).ready(function(){
-	$('#btn-save-operation').click(function(){
-		var operationForm = operationFormToJSON();
-		$(this).prop('disabled',true);
-		$.ajax({
-			url: '../pfs-rest-service/ws/operation/save',
-			mimeType: 'application/json',
-			contentType : 'application/json',
-			method: 'POST',
-			dataType: 'json',
-			data: operationForm,
-			success: function(data){
-				
-				$('#result').fadeIn(1500, function(){
-					$(this).html(operationForm);
-				});
-				setTimeout(function(){ 
-					$('#result').fadeOut(5000,function(){
-						$(this).html('');
-					});
-					$('#btn-save-operation').prop('disabled',false);
-				}, 5000);
-				
-			},
-			error: function(data, status, error){}
-		});
-			
-	});
-});
+//$(document).ready(function(){
+//	$('#btn-save-operation').click(function(){
+//		var operationForm = operationFormToJSON();
+//		$(this).prop('disabled',true);
+//		$.ajax({
+//			url: '../pfs-rest-service/ws/operation/save',
+//			mimeType: 'application/json',
+//			contentType : 'application/json',
+//			method: 'POST',
+//			dataType: 'json',
+//			data: operationForm,
+//			success: function(data){
+//				
+//				$('#result').fadeIn(1500, function(){
+//					$(this).html(operationForm);
+//				});
+//				setTimeout(function(){ 
+//					$('#result').fadeOut(5000,function(){
+//						$(this).html('');
+//					});
+//					$('#btn-save-operation').prop('disabled',false);
+//				}, 5000);
+//				
+//			},
+//			error: function(data, status, error){}
+//		});
+//			
+//	});
+//});
 
 function operationFormToJSON(){
 	var stringified = JSON.stringify({

@@ -66,7 +66,7 @@
 					<strong>Operation panel</strong>
 				</p>
 
-				<form role="form" action="../pfs-rest-service/ws/operation/save"
+				<form id="op_frm" name="op_frm" class="frm"  role="form" action="../pfs-rest-service/ws/operation/save"
 					method="post">
 
 					<div class="form-group">
@@ -95,8 +95,7 @@
 						</label> <input id="op_description" name="op_description" type="text" class="form-control input-block-level"/>
 					</div>
 
-					<input class="btn btn-default" id="btn-save-operation"
-						type="button" value="save" />
+					<input class="btn btn-default" id="btn-save-operation" type="submit" value="save" />
 				</form>
 			</div>
 		</div>
