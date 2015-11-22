@@ -1,5 +1,11 @@
 /**
- * TODO: ** Create documentation ** 
+ * TODO: In order to have an Array of Form's fields Id
+ * 
+ * 	1.	Create an array object op_frm_ids = [];
+ *  2. 	Learn how to iterate the from op_frm seeking for Field's Id
+ *  3. 	Push those to op_frm_ids.push($this.find('input.id'));
+ *  
+ *  4. 	Then repeat to it_frm
  */
 $(document).ready(function() {
 	createTabs();
@@ -44,32 +50,33 @@ function op_frm_validation(){
 		},
 		submitHandler: function(form) {
 //			$('#btn-save-operation').click(function(){
-				var operationForm = operationFormToJSON();
+//				var operationForm = operationFormToJSON();
+//				alert(operationForm);
 //				$(this).prop('disabled',true);
-				$.ajax({
-					url: '../pfs-rest-service/ws/operation/save',
-					mimeType: 'application/json',
-					contentType : 'application/json',
-					method: 'POST',
-					dataType: 'json',
-					data: operationForm,
-					success: function(data){
+//				$.ajax({
+//					url: '../pfs-rest-service/ws/operation/save',
+//					mimeType: 'application/json',
+//					contentType : 'application/json',
+//					method: 'POST',
+//					dataType: 'json',
+//					data: operationForm,
+//					success: function(data){
 						
-						$('#result').fadeIn(1500, function(){
-							$(this).html(operationForm);
-						});
-						setTimeout(function(){ 
-							$('#result').fadeOut(5000,function(){
-								$(this).html('');
-							});
-							$('#btn-save-operation').prop('disabled',false);
-						}, 5000);
-						
-					},
-					error: function(data, status, error){}
-				});
+						form.submit();
+//						$('#result').fadeIn(1500, function(){
+//							$(this).html(operationForm);
+//						});
+//						setTimeout(function(){ 
+//							$('#result').fadeOut(5000,function(){
+//								$(this).html('');
+//							});
+//							$('#btn-save-operation').prop('disabled',false);
+//						}, 5000);
+//						
+//					},
+//					error: function(data, status, error){}
+//				});
 //			});
-			form.submit();
 		}
 	});
 }
