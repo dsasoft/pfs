@@ -1,11 +1,11 @@
 /**
  * TODO: In order to have an Array of Form's fields Id
  * 
- * 	1.	Create an array object op_frm_ids = [];
- *  2. 	Learn how to iterate the from op_frm seeking for Field's Id
- *  3. 	Push those to op_frm_ids.push($this.find('input.id'));
+ *	1.	Create an array object op_frm_ids = [];
+ *	2. 	Learn how to iterate the from op_frm seeking for Field's Id
+ *	3. 	Push those to op_frm_ids.push($this.find('input.id'));
  *  
- *  4. 	Then repeat to it_frm
+ *	4. 	Then repeat to it_frm
  */
 $(document).ready(function() {
 	createTabs();
@@ -15,12 +15,22 @@ $(document).ready(function() {
 	createSelectCenter();
 	
 	// Form validation
+	$.validator.setDefaults({
+		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
+
+		errorElement : 'span',
+		
+		errorPlacement : function(error, element) {
+			error.insertBefore(element);
+		}
+	});
 	op_frm_validation();
 	it_frm_validation();
 });
 
 function op_frm_validation(){
 	$("#op_frm").validate({
+		debug : true,
 		rules : {
 			op_datepicker : {
 				required : true,
@@ -37,52 +47,21 @@ function op_frm_validation(){
 			}
 		},
 		
-		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
-		
 		messages:{
 			op_datepicker : '&nbsp;',
-			'select-center' : '',
+			'select-center': '',
 			'select-account'  : '',
 			op_amount : ''
 		},
-		errorPlacement : function(error, element) {
-			error.insertBefore(element);
-		},
 		submitHandler: function(form) {
-//			$('#btn-save-operation').click(function(){
-//				var operationForm = operationFormToJSON();
-//				alert(operationForm);
-//				$(this).prop('disabled',true);
-//				$.ajax({
-//					url: '../pfs-rest-service/ws/operation/save',
-//					mimeType: 'application/json',
-//					contentType : 'application/json',
-//					method: 'POST',
-//					dataType: 'json',
-//					data: operationForm,
-//					success: function(data){
-						
-						form.submit();
-//						$('#result').fadeIn(1500, function(){
-//							$(this).html(operationForm);
-//						});
-//						setTimeout(function(){ 
-//							$('#result').fadeOut(5000,function(){
-//								$(this).html('');
-//							});
-//							$('#btn-save-operation').prop('disabled',false);
-//						}, 5000);
-//						
-//					},
-//					error: function(data, status, error){}
-//				});
-//			});
+//			form.submit(); //TODO: Some says that is redundant / useless
 		}
 	});
 }
 
 function it_frm_validation(){
 	$("#it_frm").validate({
+		
 		rules : {
 			it_datepicker : {
 				required : true,
@@ -99,16 +78,12 @@ function it_frm_validation(){
 			}
 		},
 		
-		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
 		
 		messages:{
 			it_datepicker : '&nbsp;',
 			'select-account-from': '',
 			'select-account-to'  : '',
 			it_amount : ''
-		},
-		errorPlacement : function(error, element) {
-			error.insertBefore(element);
 		},
 		submitHandler: function(form) {
 			form.submit();

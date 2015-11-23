@@ -65,38 +65,39 @@
 				<p>
 					<strong>Operation panel</strong>
 				</p>
-
-				<form id="op_frm" name="op_frm" class="frm"  role="form" action="../pfs-rest-service/ws/operation/save"
-					method="post">
-
-					<div class="form-group">
-						<label for="op_datepicker">
-							<!--//TODO: I18n -->Date:
-						</label> <input id="op_datepicker" type="text" />
-					</div>
-					<div class="form-group">
-						<label for="op_amount">
-							<!--//TODO: I18n -->Amount:
-						</label> <input id="op_amount" type="text" class="form-control" />
-					</div>
-					<div class="form-group">
-						<label for="select-center">
-							<!--//TODO: I18n -->Center:
-						</label> <select id="select-center" class="form-control"></select>
-					</div>
-					<div class="form-group">
-						<label for="select-account">
-							<!--//TODO: I18n -->Account:
-						</label> <select id="select-account" class="form-control"></select>
-					</div>
-					<div class="form-group">
-						<label for="op_description">
-							<!--//TODO: I18n -->Description:
-						</label> <input id="op_description" name="op_description" type="text" class="form-control input-block-level"/>
-					</div>
-
-					<input class="btn btn-default" id="btn-save-operation" type="submit" value="save" />
-				</form>
+				<div id="tab2-content">
+					<form id="op_frm" name="op_frm" class="frm"  role="form" action="../pfs-rest-service/ws/operation/save"
+						method="post">
+	
+						<div class="form-group">
+							<label for="op_datepicker">
+								<!--//TODO: I18n -->Date:
+							</label> <input id="op_datepicker" name="op_datepicker" type="text" />
+						</div>
+						<div class="form-group">
+							<label for="op_amount">
+								<!--//TODO: I18n -->Amount:
+							</label> <input id="op_amount" name="op_amount" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label for="select-center">
+								<!--//TODO: I18n -->Center:
+							</label> <select id="select-center" name="select-center" class="form-control"></select>
+						</div>
+						<div class="form-group">
+							<label for="select-account">
+								<!--//TODO: I18n -->Account:
+							</label> <select id="select-account" name="select-account" class="form-control"></select>
+						</div>
+						<div class="form-group">
+							<label for="op_description">
+								<!--//TODO: I18n -->Description:
+							</label> <input id="op_description" name="op_description" type="text" class="form-control input-block-level"/>
+						</div>
+	
+						<input class="btn btn-default" id="btn-save-operation" name="btn-save-operation" type="submit" value="save" />
+					</form>
+				</div>
 			</div>
 		</div>
 		<!-- #tabs -->
