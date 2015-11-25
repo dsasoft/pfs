@@ -54,7 +54,30 @@ function op_frm_validation(){
 			op_amount : ''
 		},
 		submitHandler: function(form) {
-//			form.submit(); //TODO: Some says that is redundant / useless
+			var operationForm = operationFormToJSON();
+			$('#btn-save-operation').prop('disabled',true);
+			$.ajax({
+				url: '../pfs-rest-service/ws/operation/save',
+				mimeType: 'application/json',
+				contentType : 'application/json',
+				method: 'POST',
+				dataType: 'json',
+				data: operationForm,
+				success: function(data){
+					
+					$('#result').fadeIn(1500, function(){
+						$(this).html(operationForm);
+					});
+					setTimeout(function(){ 
+						$('#result').fadeOut(5000,function(){
+							$(this).html('');
+						});
+						$('#btn-save-operation').prop('disabled',false);
+					}, 5000);
+					
+				},
+				error: function(data, status, error){}
+			});
 		}
 	});
 }
@@ -125,35 +148,35 @@ $(document).ready(function(){
 	})
 });
 
-$(document).ready(function(){
-	$('#btn-save-operation').click(function(){
-		var operationForm = operationFormToJSON();
-		$(this).prop('disabled',true);
-		$.ajax({
-			url: '../pfs-rest-service/ws/operation/save',
-			mimeType: 'application/json',
-			contentType : 'application/json',
-			method: 'POST',
-			dataType: 'json',
-			data: operationForm,
-			success: function(data){
-				
-				$('#result').fadeIn(1500, function(){
-					$(this).html(operationForm);
-				});
-				setTimeout(function(){ 
-					$('#result').fadeOut(5000,function(){
-						$(this).html('');
-					});
-					$('#btn-save-operation').prop('disabled',false);
-				}, 5000);
-				
-			},
-			error: function(data, status, error){}
-		});
-			
-	});
-});
+//$(document).ready(function(){
+//	$('#btn-save-operation').click(function(){
+//		var operationForm = operationFormToJSON();
+//		$(this).prop('disabled',true);
+//		$.ajax({
+//			url: '../pfs-rest-service/ws/operation/save',
+//			mimeType: 'application/json',
+//			contentType : 'application/json',
+//			method: 'POST',
+//			dataType: 'json',
+//			data: operationForm,
+//			success: function(data){
+//				
+//				$('#result').fadeIn(1500, function(){
+//					$(this).html(operationForm);
+//				});
+//				setTimeout(function(){ 
+//					$('#result').fadeOut(5000,function(){
+//						$(this).html('');
+//					});
+//					$('#btn-save-operation').prop('disabled',false);
+//				}, 5000);
+//				
+//			},
+//			error: function(data, status, error){}
+//		});
+//			
+//	});
+//});
 
 function operationFormToJSON(){
 	var stringified = JSON.stringify({
