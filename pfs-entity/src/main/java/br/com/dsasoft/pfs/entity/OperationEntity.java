@@ -34,25 +34,45 @@ public class OperationEntity implements Operation {
 	
 	@Column
 	private String description;
-	
 
+	@Override
 	public Center getCenter() {
-		return this.center;
+		return center;
 	}
 
+	@Override
 	public Date getDate() {
-		return this.date;
+		return date;
 	}
 
+	@Override
 	public BigDecimal getAmount() {
-		return this.amount;
+		return amount;
 	}
-	
+
+	@Override
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	@Override
+	public void setDescription(String desc) {
+		this.description = desc;		
 	}
+
+	@Override
+	public void setAmount(BigDecimal bd) {
+		this.amount = bd;
+	}
+
+	@Override
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@Override
+	public void setCenter(Center center) {
+		this.center = (CenterEntity) center;
+	}
+		
 }

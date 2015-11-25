@@ -25,8 +25,7 @@ public class CenterFacade extends FacadeBase<CenterEntity> {
 
 	@Override
 	public CenterEntity findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(CenterEntity.class, id);
 	}
 
 	@Override

@@ -10,4 +10,14 @@ public interface Operation {
 	public Date getDate();
 	
 	public BigDecimal getAmount();
+	
+	public String getDescription();
+	
+	public void setDescription(String desc);
+	
+	public void setAmount(BigDecimal bd);
+	
+	public void setDate(Date date);
+	
+	public void setCenter(Center center);
 }
