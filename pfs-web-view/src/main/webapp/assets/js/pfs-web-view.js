@@ -66,7 +66,7 @@ function op_frm_validation(){
 				success: function(data){
 					
 					$('#result').fadeIn(1500, function(){
-						$(this).html(operationForm);
+						$(this).html(JSON.stringify(data));
 					});
 					setTimeout(function(){ 
 						$('#result').fadeOut(5000,function(){

@@ -5,6 +5,8 @@ import java.util.Date;
 
 public interface Operation {
 
+	public Long getId();
+	
 	public Center getCenter();
 	
 	public Date getDate();
@@ -20,4 +22,6 @@ public interface Operation {
 	public void setDate(Date date);
 	
 	public void setCenter(Center center);
+	
+	public void setId(Long id);
 }

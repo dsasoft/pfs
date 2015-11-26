@@ -60,13 +60,11 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 	@Override
 	public void update(AccountEntity t) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void delete(AccountEntity t) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

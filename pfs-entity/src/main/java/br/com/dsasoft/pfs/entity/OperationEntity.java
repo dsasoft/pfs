@@ -11,11 +11,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.dsasoft.pfs.model.Center;
 import br.com.dsasoft.pfs.model.Operation;
 @Entity
 @Table(name="tb_operation")
+@XmlRootElement
 public class OperationEntity implements Operation {
 
 	@Id
@@ -73,6 +75,16 @@ public class OperationEntity implements Operation {
 	@Override
 	public void setCenter(Center center) {
 		this.center = (CenterEntity) center;
+	}
+
+	@Override
+	public Long getId() {
+		return this.id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;
 	}
 		
 }

@@ -7,11 +7,14 @@ import java.util.regex.Pattern;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -19,7 +22,7 @@ import org.joda.time.format.DateTimeFormatter;
 import br.com.dsasoft.pfs.entity.CenterEntity;
 import br.com.dsasoft.pfs.entity.OperationEntity;
 import br.com.dsasoft.pfs.facade.CenterFacade;
-import br.com.dsasoft.pfs.model.Operation;
+import br.com.dsasoft.pfs.facade.OperationFacade;
 
 @Path("/operation")
 public class OperationResources {
@@ -45,9 +48,11 @@ public class OperationResources {
 			
 			Matcher m = Pattern.compile("[+-]?[0-9]{1,3}(?:,?[0-9]{3})*\\,[0-9]{2}$").matcher(amount);
 			if(m.find()){
+				for(int i = 0; i < m.groupCount(); i++)
+					System.out.println(m.group(i));
 				amount = m.group();
 				amount = amount.replace(".", "");
-				amount = amount.replace(",", ".");
+				amount = amount.replaceAll(",", ".");
 				return amount;
 			}else
 				return "0";
@@ -84,10 +89,11 @@ public class OperationResources {
 
 	@POST
 	@Consumes("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("save")
 	public Response save(OperationRequest opRequest) throws Exception {
 
-		Operation op = new OperationEntity();		
+		OperationEntity op = new OperationEntity();		
 		op.setAmount(new BigDecimal(opRequest.getAmount()));
 		
 		
@@ -98,13 +104,18 @@ public class OperationResources {
 		
 		op.setDescription(opRequest.getDescription());
 		
-		
 		CenterFacade centerFacade = new CenterFacade(null);
 		
 		CenterEntity center = centerFacade.findById(new Long(opRequest.getCenter()));
-		 op.setCenter(center);
+		op.setCenter(center);
 		
+		OperationFacade facade = new OperationFacade(null);
+		facade.create(op);
 		
-		return Response.status(201).entity("{\"property\":\"value\"}").build();
+		ObjectMapper om = new ObjectMapper();
+		
+		String json = om.writeValueAsString(op);
+		
+		return Response.status(201).entity(json).build();
 	}
 }
