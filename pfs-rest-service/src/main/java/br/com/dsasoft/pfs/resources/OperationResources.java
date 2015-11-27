@@ -1,9 +1,5 @@
 package br.com.dsasoft.pfs.resources;
 
-import java.math.BigDecimal;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -15,6 +11,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.joda.money.Money;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -45,17 +42,17 @@ public class OperationResources {
 		}
 
 		public String getAmount() {
-			
-			Matcher m = Pattern.compile("[+-]?[0-9]{1,3}(?:,?[0-9]{3})*\\,[0-9]{2}$").matcher(amount);
-			if(m.find()){
-				for(int i = 0; i < m.groupCount(); i++)
-					System.out.println(m.group(i));
-				amount = m.group();
-				amount = amount.replace(".", "");
-				amount = amount.replaceAll(",", ".");
-				return amount;
-			}else
-				return "0";
+			// Matcher m =
+			// Pattern.compile("[+-]?[0-9]{1,3}(?:,?[0-9]{3})*\\,[0-9]{2}$").matcher(amount);
+			// if(m.find()){
+			// for(int i = 0; i < m.groupCount(); i++)
+			// System.out.println(m.group(i));
+			// amount = m.group();
+			// amount = amount.replace(".", "");
+			// amount = amount.replaceAll(",", ".");
+			return amount;
+			// }else
+			// return "0";
 		}
 
 		public void setAmount(String amount) {
@@ -94,8 +91,12 @@ public class OperationResources {
 	public Response save(OperationRequest opRequest) throws Exception {
 
 		OperationEntity op = new OperationEntity();		
-		op.setAmount(new BigDecimal(opRequest.getAmount()));
+
+		// CurrencyUnit unit = CurrencyUnit.ofCountry("BRL");
+
+		Money money = Money.parse(opRequest.getAmount());
 		
+		op.setAmount(money.getAmount());
 		
 		DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("MM/dd/yyyy");
 		DateTime dt = dtFormatter.parseDateTime(opRequest.getDate());
