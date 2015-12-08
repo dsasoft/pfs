@@ -15,6 +15,11 @@ $(document).ready(function() {
 	createSelectCenter();
 	
 	// Form validation
+	setupValidator();
+});
+
+function setupValidator(){
+	/**	 * Setup common behavior	 * */
 	$.validator.setDefaults({
 		errorClass : 'alert-danger glyphicon glyphicon-exclamation-sign',
 
@@ -26,11 +31,11 @@ $(document).ready(function() {
 	});
 	op_frm_validation();
 	it_frm_validation();
-});
+}
 
 function op_frm_validation(){
 	$("#op_frm").validate({
-		debug : true,
+		// debug : true,
 		rules : {
 			op_datepicker : {
 				required : true,
@@ -147,36 +152,6 @@ $(document).ready(function(){
 		});
 	})
 });
-
-//$(document).ready(function(){
-//	$('#btn-save-operation').click(function(){
-//		var operationForm = operationFormToJSON();
-//		$(this).prop('disabled',true);
-//		$.ajax({
-//			url: '../pfs-rest-service/ws/operation/save',
-//			mimeType: 'application/json',
-//			contentType : 'application/json',
-//			method: 'POST',
-//			dataType: 'json',
-//			data: operationForm,
-//			success: function(data){
-//				
-//				$('#result').fadeIn(1500, function(){
-//					$(this).html(operationForm);
-//				});
-//				setTimeout(function(){ 
-//					$('#result').fadeOut(5000,function(){
-//						$(this).html('');
-//					});
-//					$('#btn-save-operation').prop('disabled',false);
-//				}, 5000);
-//				
-//			},
-//			error: function(data, status, error){}
-//		});
-//			
-//	});
-//});
 
 function operationFormToJSON(){
 	var stringified = JSON.stringify({

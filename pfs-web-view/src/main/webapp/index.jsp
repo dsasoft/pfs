@@ -1,4 +1,4 @@
-<%-- <%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%> --%>
+<%-- <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%> --%>
 <%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> --%>
 <!DOCTYPE html>
 <html>
@@ -11,12 +11,13 @@
 <link rel="stylesheet" type="text/css" href="assets/jquery/ui/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/pfs-web-view.css" />
 
+<%-- <link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/favicon.ico"> --%>
 </head>
 <body>
-	<!-- <fmt:bundle basename="br.com.dsasoft.i18n.messages" prefix="pfs-web-view."></fmt:bundle> -->
+<%-- 	<fmt:bundle basename="br.com.dsasoft.i18n.messages" prefix="pfs-web-view.hello-word"></fmt:bundle> --%>
 	<div id="content-wrapper">
-<!-- 		<h2>Personal Financial Statement</h2> -->
-		<!-- 		<h2><fmt:message key="hello-world"/> </h2> -->
+		<h2>Personal Financial Statement</h2>
+<%-- 				<h2><fmt:message key="hello-world"/> </h2> --%>
 		<div id="tabs">
 
 			<ul>
