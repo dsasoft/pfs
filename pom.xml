@@ -11,6 +11,7 @@
 	<properties>
 		<jdk-version>1.6</jdk-version>
 		<junit-version>4.11</junit-version>
+		<spring-version>4.2.4.RELEASE</spring-version>
 	</properties>
 	<modules>
 		<module>pfs-util</module>
