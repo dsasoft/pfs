@@ -17,6 +17,7 @@
 		<module>pfs-entity</module>
 		<module>pfs-rest-service</module>
 		<module>pfs-web-view</module>
+		<module>pfs-web-rest</module>
 	</modules>
 	<build>
 		<plugins>
