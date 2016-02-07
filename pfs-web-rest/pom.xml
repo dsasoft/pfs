@@ -34,9 +34,9 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>LATEST</version>
+<!-- 			<version>LATEST</version> -->
 			<scope>provided</scope>
-<!-- 			<version>3.1.0</version> -->
+			<version>3.1.0</version>
 		</dependency>
 
 	</dependencies>
