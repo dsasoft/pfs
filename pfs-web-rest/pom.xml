@@ -49,6 +49,7 @@
 				<version>2.0</version>
 				<configuration>
 					<path>/pfs-web-rest</path>
+					<port>8401</port>
 				</configuration>
 			</plugin>
 		</plugins>
