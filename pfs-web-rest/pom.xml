@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.com.dsasoft.pfs</groupId>
+		<artifactId>pfs</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>pfs-web-rest</artifactId>
+	<packaging>war</packaging>
+	<name>pfs-web-rest Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+
+		<dependency>
+			<groupId>br.com.dsasoft.pfs</groupId>
+			<artifactId>pfs-entity</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+<!-- 			<version>LATEST</version> -->
+			<scope>provided</scope>
+			<version>3.1.0</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>pfs-web-rest</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<path>/pfs-web-rest</path>
+					<port>8401</port>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
