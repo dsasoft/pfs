@@ -26,6 +26,9 @@
 # **/nb-configuration.xml
 # **/META-INF
 
+persistence.xml
+**/persistence.xml
+
 # Maven files
 
 target/
