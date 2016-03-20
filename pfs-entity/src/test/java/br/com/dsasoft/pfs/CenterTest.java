@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -14,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import br.com.dsasoft.pfs.entity.CenterEntity;
+import br.com.dsasoft.pfs.facade.PfsEntityManagerFactory;
 import br.com.dsasoft.pfs.model.Center;
 import br.com.dsasoft.pfs.model.CenterType;
 
@@ -27,8 +27,8 @@ public class CenterTest {
 	
 	@Before
 	public void givenPersistentContext() {
-		emf = Persistence.createEntityManagerFactory("pfs-entity");
-		em = emf.createEntityManager();
+//		emf = Persistence.createEntityManagerFactory("pfs-entity");
+		em = PfsEntityManagerFactory.getInstance();
 		
 		insert();
 	}

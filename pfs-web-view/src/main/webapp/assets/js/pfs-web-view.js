@@ -18,6 +18,9 @@ $(document).ready(function() {
 	setupValidator();
 });
 
+/**
+ * Setup Form validation
+ * */
 function setupValidator(){
 	/**	 * Setup common behavior	 * */
 	$.validator.setDefaults({
@@ -178,7 +181,7 @@ function cleanOperationForm(){
 
 function applyNumericMask(){
 	var options = {
-		aSep: '.', aDec: ',', aSign: 'R$ '
+		aSep: '.', aDec: ',', aSign: ''
 	};
 	$('#it_amount').autoNumeric('init', options);
 	$('#op_amount').autoNumeric('init', options);

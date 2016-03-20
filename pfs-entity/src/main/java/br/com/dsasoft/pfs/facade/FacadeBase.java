@@ -8,6 +8,9 @@ public abstract class FacadeBase<T> {
 
 	protected EntityManager em;
 	
+	protected FacadeBase(){ };
+	
+	@Deprecated
 	public FacadeBase(EntityManager em){
 		this.em = em;
 	}

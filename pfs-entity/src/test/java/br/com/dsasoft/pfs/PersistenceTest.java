@@ -11,7 +11,6 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -36,7 +35,7 @@ public class PersistenceTest {
 		System.out.println("\n\n\n \tHello JUnit \n\n\n");
 	}
 	
-	@Test
+//	@Test
 	public void jdbcConnection() throws Exception{
 		Connection conn = null;
         try {

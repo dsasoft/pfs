@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -18,9 +17,7 @@ public class CenterFacade extends FacadeBase<CenterEntity> {
 	EntityManager em;
 	
 	public CenterFacade(EntityManager em) {
-		super(em);
-		emf = Persistence.createEntityManagerFactory("pfs-entity");
-		this.em = emf.createEntityManager();
+		this.em = PfsEntityManagerFactory.getInstance();
 	}
 
 	@Override
