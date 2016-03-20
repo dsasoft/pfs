@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -30,7 +31,7 @@ public class PersistenceTest {
     private static final String PASSWORD = "root";
 
 
-//	@Test
+	@Test
 	public void helloJunit() {
 		System.out.println("\n\n\n \tHello JUnit \n\n\n");
 	}
