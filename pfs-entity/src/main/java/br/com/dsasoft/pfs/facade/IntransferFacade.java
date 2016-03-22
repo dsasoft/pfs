@@ -25,7 +25,6 @@ public class IntransferFacade extends FacadeBase<Intransfer> {
 	EntityManager em;
 
 	public IntransferFacade(EntityManager em) {
-		super(em);
 		emf = Persistence.createEntityManagerFactory("pfs-entity");
 		this.em = emf.createEntityManager();
 	}

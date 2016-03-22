@@ -20,7 +20,6 @@ public class OperationFacade extends FacadeBase<OperationEntity> {
 	EntityManager em;
 
 	public OperationFacade(EntityManager em) {
-		super(em);
 		if (em != null && em.isOpen())
 			this.em = em;
 		else {
