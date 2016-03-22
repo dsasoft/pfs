@@ -130,7 +130,7 @@ $(document).ready(function(){
 		if(! $(this).val()) return;
 		
 		$.ajax({
-			url: '../pfs-rest-service/ws/account/all/except/' + $(this).val(),
+			url: '../pfs-web-rest/ws/account/all/except/' + $(this).val(),
 			mimeType: 'application/json',
 			contentType : 'application/json',
 			method: 'GET',
@@ -192,7 +192,7 @@ function createSelectAccount(){
 	var accountList;
 	
 	$.ajax({
-		url : '../pfs-rest-service/ws/account/all',
+		url : '../pfs-web-rest/ws/account/all',
 		mimeType : 'application/json',
 		method : 'GET',
 		dataType : 'json',
@@ -231,7 +231,7 @@ function createTabs() {
 
 function createSelectCenter() {
 	$.ajax({
-		url : '../pfs-rest-service/ws/center/all',
+		url : '../pfs-web-rest/ws/center/all',
 		mimeType : 'application/json',
 		method : 'GET',
 		dataType : 'json',
@@ -240,7 +240,7 @@ function createSelectCenter() {
 			var content = '<select>' + '<option/>';
 			
 			if(! $.isEmptyObject(data)){
-				$.each(data.centerEntity, function(index, value) {
+				$.each(data, function(index, value) {
 					
 					if(value.centerType === 'OUTCOME') //
 						content += '<option  class=\"alert alert-danger\" value=\"' + value.id + '\">' + value.name + '</option>';

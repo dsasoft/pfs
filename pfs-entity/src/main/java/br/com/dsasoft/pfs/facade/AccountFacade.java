@@ -20,7 +20,6 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 	EntityManager em;
 	
 	public AccountFacade(EntityManager em) {
-		super(em);
 		if(em != null && em.isOpen())
 			this.em = em;
 		else{
