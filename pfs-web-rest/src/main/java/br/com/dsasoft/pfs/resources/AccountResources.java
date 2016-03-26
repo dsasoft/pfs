@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,26 +22,37 @@ import br.com.dsasoft.pfs.model.Account;
 public class AccountResources {
 
 	FacadeBase<AccountEntity> facade;
-	
-	public AccountResources(){
+
+	public AccountResources() {
 		facade = new AccountFacade(null);
 	}
-	
-	@RequestMapping( value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
+
+	@RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<AccountEntity>> listAccount(){
-		return new ResponseEntity<List<AccountEntity>>(facade.listAll(), HttpStatus.OK);
+	public ResponseEntity<List<AccountEntity>> listAccount() {
+		return new ResponseEntity<List<AccountEntity>>(facade.listAll(),
+				HttpStatus.OK);
 	}
-	
-	@RequestMapping( value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Account> getAccount(@PathVariable("id") Long id){
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<Account> getAccount(@PathVariable("id") Long id) {
 		return new ResponseEntity<Account>(facade.findById(id), HttpStatus.OK);
 	}
-	
-	@RequestMapping( value = "/all/except/{id}", method = RequestMethod.GET, produces  = MediaType.APPLICATION_JSON_UTF8_VALUE)
+
+	@RequestMapping(value = "/all/except/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<AccountEntity>> listAccount(@PathVariable("id") Long id){
+	public ResponseEntity<List<AccountEntity>> listAccount(
+			@PathVariable("id") Long id) {
 		AccountFacade facadeAccount = new AccountFacade(null);
-		return new ResponseEntity<List<AccountEntity>>(facadeAccount.listAllExceptId(id), HttpStatus.OK);
+		return new ResponseEntity<List<AccountEntity>>(
+				facadeAccount.listAllExceptId(id), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody ResponseEntity<String> create(
+			@RequestBody AccountEntity account) {
+		Long id = facade.create(account);
+		return new ResponseEntity<String>("{id:" + id + " }",
+				HttpStatus.CREATED);
 	}
 }

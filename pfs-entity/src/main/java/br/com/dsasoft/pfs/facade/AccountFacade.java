@@ -68,7 +68,10 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 
 	@Override
 	public Long create(AccountEntity t) {
-		// TODO Auto-generated method stub
-		return null;
+		em.getTransaction().begin();
+		em.persist(t);
+		em.flush();
+		em.getTransaction().commit();
+		return t.getId();
 	}
 }
