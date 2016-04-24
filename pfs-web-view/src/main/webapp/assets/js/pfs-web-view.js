@@ -65,7 +65,7 @@ function op_frm_validation(){
 			var operationForm = operationFormToJSON();
 			$('#btn-save-operation').prop('disabled',true);
 			$.ajax({
-				url: '../pfs-rest-service/ws/operation/save',
+				url: '../pfs-web-rest/ws/operation/save',
 				mimeType: 'application/json',
 				contentType : 'application/json',
 				method: 'POST',
@@ -136,17 +136,16 @@ $(document).ready(function(){
 			method: 'GET',
 			dataType: 'json',
 			success:function(data){
-				
-				var _object = data.accountEntity;
+				console.log(data);
 				
 				var content = '<select>';
-				if( $.isArray(_object)){
-					
-					$.each(_object, function(index, value) {
+				
+				if( $.isArray(data)){
+					$.each(data, function(index, value) {
 						content += '<option value=\"'+value.id+'\">' + value.name + '</option>';
 					});
 				}else{
-					content += '<option value=\"'+ _object.id +'\">' + _object.name + '</option>'; 
+					content += '<option value=\"'+ data.id +'\">' + data.name + '</option>'; 
 				}
 				content += '</select>';
 				$('#select-account-to').html(content);
@@ -198,7 +197,7 @@ function createSelectAccount(){
 		dataType : 'json',
 		success : function(data) {
 			var content = '<option/>';
-			$.each(data.accountEntity, function(index, value) {
+			$.each(data, function(index, value) {
 				content += '<option value=\"'+value.id+'\">' + value.name + '</option>';
 			});
 			$('#select-account-from').append(content);

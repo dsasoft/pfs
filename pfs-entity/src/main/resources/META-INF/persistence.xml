@@ -22,6 +22,11 @@
 <!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pfs_db" /> -->
 			<property name="javax.persistence.jdbc.user" value="dsasoft" />
 			<property name="javax.persistence.jdbc.password" value="pfsDb2016" />
+			
+			<!-- Keeping the damn connection alive!  -->
+			<property name="hibernate.dbcp.validationQuery" value="select 1"/>
+			<property name="hibernate.dbcp.testOnBorrow" value="true"/>
+			<property name="hibernate.dbcp.testOnReturn" value="true"/>
 		</properties>
 
 	</persistence-unit>
