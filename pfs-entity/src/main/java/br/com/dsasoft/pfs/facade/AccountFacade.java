@@ -18,16 +18,11 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 
 	@PersistenceContext
 	EntityManager em;
-	
+
 	public AccountFacade(EntityManager em) {
-		if(em != null && em.isOpen())
-			this.em = em;
-		else{
-			emf = Persistence.createEntityManagerFactory("pfs-entity");
-			this.em = emf.createEntityManager();
-		}
+		emf = Persistence.createEntityManagerFactory("pfs-entity");
+		this.em = emf.createEntityManager();
 	}
-	
 
 	@Override
 	public AccountEntity findById(Long id) {
@@ -37,20 +32,19 @@ public class AccountFacade extends FacadeBase<AccountEntity> {
 
 	@Override
 	public List<AccountEntity> listAll() {
-		Query query = 
-				em.createQuery("SELECT a FROM AccountEntity AS a");
-		
+		Query query = em.createQuery("SELECT a FROM AccountEntity AS a");
+
 		@SuppressWarnings("unchecked")
 		List<AccountEntity> list = query.getResultList();
 		return list;
 	}
-	
-	public List<AccountEntity> listAllExceptId(Long id){
-		Query query = 
-				em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.id NOT IN (:id) ");
-		
+
+	public List<AccountEntity> listAllExceptId(Long id) {
+		Query query = em
+				.createQuery("SELECT a FROM AccountEntity AS a WHERE a.id NOT IN (:id) ");
+
 		query.setParameter("id", id);
-		
+
 		@SuppressWarnings("unchecked")
 		List<AccountEntity> list = query.getResultList();
 		return list;
