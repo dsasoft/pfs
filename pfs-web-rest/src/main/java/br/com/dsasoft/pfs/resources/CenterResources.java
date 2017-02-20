@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.dsasoft.pfs.entity.CenterEntity;
 import br.com.dsasoft.pfs.facade.CenterFacade;
-import br.com.dsasoft.pfs.model.Center;
 
 @Controller
 @RequestMapping("center")
@@ -28,8 +27,6 @@ public class CenterResources {
 	@ResponseBody
 	public ResponseEntity<List<CenterEntity>> listCenter(){
 		List<CenterEntity> list = facade.listAll();
-		for(Center c : list)
-			System.out.println(c);
 		return new ResponseEntity<List<CenterEntity>>(list, HttpStatus.OK);
 	}
 }
